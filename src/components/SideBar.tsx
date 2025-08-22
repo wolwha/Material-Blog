@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaRegMoon } from "react-icons/fa";
 import { MdHomeFilled, MdMenu, MdOutlineSearch } from "react-icons/md";
 
 export default function SideBar() {
   return (
     <>
-      <div className="w-[90px] h-auto flex justify-center items-start bg-[#f4f4f4] select-none">
+      <div className="w-[90px] h-auto flex justify-center items-start bg-[#f4f4f4] select-none relative">
         <div className="grid gap-[30px] mt-[22px]">
           <button className="flex justify-center items-center size-[56px] rounded-[16px] hover:bg-[#d9d9d9]  cursor-pointer">
             <MdMenu size={25} />
@@ -45,6 +45,14 @@ export default function SideBar() {
             <FaLinkedin className="size-[25px] text-[#0a66c2]" />
             Linked In
           </a>
+        </div>
+        <div className="absolute bottom-[20px] left-[19px] flex justify-center items-center flex-col gap-[20px]">
+          <button className="rounded-[16px] size-[46px] bg-[#E8DEF8] rotate-[45deg] border-2 border-[#BEB5CD]"></button>
+          <div className="w-[52px] h-[32px] rounded-[16px] bg-[#6750a4] flex items-center">
+            <div className="size-[24px] bg-white rounded-full mx-[4px] flex justify-center items-center">
+              <FaRegMoon />
+            </div>
+          </div>
         </div>
       </div>
     </>

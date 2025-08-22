@@ -37,10 +37,10 @@ export default function RootLayout({
             {/* 헤더 */}
             <Header />
             {/* 컨테이너 */}
-            <div className="min-w-[1440px] h-full bg-[#f4f4f4] flex">
+            <div className="h-full bg-[#f4f4f4] flex">
               {/* 컨텐츠 */}
               <div className="w-full min-h-[calc(100vh-105px)] bg-[#E8DEF8] rounded-tl-[20px] px-[30px] pt-[40px] flex flex-col">
-                <div className="min-w-[1290px] h-full rounded-[20px] bg-white justify-center items-start flex">
+                <div className="h-full rounded-[20px] bg-white justify-center items-start flex">
                   {children}
                 </div>
                 {/* 푸터 */}
