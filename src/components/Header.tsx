@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Logo from "/src/assets/Gemini_Generated_Image_ul6ukvul6ukvul6u.png";
 import { MdPerson } from "react-icons/md";
 
 export default function Header() {
@@ -5,7 +7,9 @@ export default function Header() {
     <>
       <div className="w-full h-[105px] bg-[#f4f4f4] flex justify-start items-center relative">
         <button className="flex gap-[10px] ml-[13px] cursor-pointer">
-          <div className="size-[56px] rounded-[16px] bg-[#d9d9d9]"></div>
+          <div className="size-[56px]">
+            <Image src={Logo} alt="Logo" width={56} height={56} />
+          </div>
           <div className="flex flex-col justify-start items-start">
             <p className="text-[20px] font-semibold">CODERUNNER</p>
             <p className="text-[10px] font-semibold">.BLOG</p>

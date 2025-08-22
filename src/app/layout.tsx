@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "CODERUNNER.BLOG",
   description: "CODERUNNER Blog",
+  icons: {
+    icon: "/Gemini_Generated_Image_ul6ukvul6ukvul6u.png",
+  },
 };
 
 export default function RootLayout({
