@@ -1,5 +1,5 @@
-import Container from "@/components/Container";
-import EditButton from "@/components/EditButton";
+import Container from "@/components/Main/Container";
+import EditButton from "@/components/Main/EditButton";
 
 export default function page() {
   return (
