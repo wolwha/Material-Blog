@@ -13,3 +13,12 @@
   src: url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap")
     format("truetype");
 }
+
+:root {
+  --color-primary: #e8def8;
+  --color-white: #ffffff;
+  --color-dark: #000000;
+  --bg-gray: #f0ecee;
+  --color-point: #6750a4;
+  --text-point: #4f378a;
+}

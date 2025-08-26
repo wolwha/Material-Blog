@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "CODERUNNER.BLOG",
   description: "CODERUNNER Blog",
   icons: {
-    icon: "/Gemini_Generated_Image_ul6ukvul6ukvul6u.png",
+    icon: "/Gemini_Generated_Image_ul6ukvul6ukvul6u-다음에서-변환-png.webp",
   },
 };
 
@@ -33,16 +33,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="min-h-screen flex">
-          {/* 사이드바 */}
-          <SideBar />
-          <div className="flex flex-col w-full">
+        <div className="min-h-screen flex relative">
+          <div className="fixed top-0 left-0">
+            {/* 사이드바 */}
+            <SideBar />
+          </div>
+          <div className="flex flex-col grow w-full ml-[90px]">
             {/* 헤더 */}
             <Header />
             {/* 컨테이너 */}
-            <div className="h-full bg-[#f4f4f4] flex">
+            <div className="h-full bg-[var(--bg-gray)] flex">
               {/* 컨텐츠 */}
-              <div className="w-full min-h-[calc(100vh-105px)] bg-[#E8DEF8] rounded-tl-[20px] px-[30px] pt-[40px] flex flex-col">
+              <div className="w-full min-h-[calc(100vh-105px)] bg-[var(--color-primary)] rounded-tl-[20px] px-[30px] pt-[40px] flex flex-col">
                 <div className="h-full rounded-[20px] bg-white justify-center items-start flex">
                   {children}
                 </div>
