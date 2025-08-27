@@ -1,7 +1,7 @@
-import Content from "@/components/Post/Content";
 import MainImage from "@/components/Post/MainImage";
 import PostContainer from "@/components/Post/PostContainer";
 import Title from "@/components/Post/Title";
+import ReactQuill from "react-quill-new";
 
 export default function page() {
   return (
@@ -10,17 +10,12 @@ export default function page() {
         {/* 제목과 대표사진 */}
         <div className="flex mt-[20px] gap-[10px] justify-center items-center">
           <Title />
+          {/* 이미지 삽입부분으로 변경 */}
           <MainImage />
         </div>
-        {/* 내용과 목차 */}
-        <div className="flex h-full">
-          <div className="w-[150px] h-full"></div>
-          <div className="flex flex-col gap-[20px]">
-            <div className="flex w-full">
-              <PostContainer />
-            </div>
-          </div>
-          <Content />
+        {/* 내용 입력 에리어 */}
+        <div className="flex h-full border-1">
+          <p>리액트 퀼 삽입</p>
         </div>
       </div>
     </>
