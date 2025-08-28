@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaRegMoon } from "react-icons/fa";
 import {
+  MdCategory,
   MdHomeFilled,
   MdMenu,
   MdOutlineSearch,
@@ -38,6 +39,14 @@ export default function SideBar() {
               Home
             </button>
           </Link>
+          <button
+            className="size-[56px] rounded-[16px] text-[10px] hover:bg-[#d9d9d9] flex flex-col justify-center items-center  cursor-pointer"
+            name="Category"
+            aria-label="Category"
+          >
+            <MdCategory size={25} />
+            Category
+          </button>
           <a
             href="https://github.com/wolwha"
             target="_blank"
@@ -77,7 +86,6 @@ export default function SideBar() {
             <div className="w-[62px] h-[32px] rounded-[16px] bg-[var(--color-primary)] flex items-center border-2 border-[#BEB5CD]">
               <div className="size-[24px] bg-white rounded-full mx-[2px] flex justify-center items-center">
                 <MdOutlineWbSunny />
-                {/* <FaRegMoon /> */}
               </div>
             </div>
           </button>

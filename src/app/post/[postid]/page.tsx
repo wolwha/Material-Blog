@@ -6,7 +6,7 @@ import Title from "@/components/Post/Title";
 export default function page() {
   return (
     <>
-      <div className="flex flex-col gap-[10px]">
+      <div className="flex flex-col gap-[20px]">
         {/* 제목과 대표사진 */}
         <div className="flex mt-[20px] gap-[10px] justify-center items-center">
           <Title />
@@ -16,11 +16,13 @@ export default function page() {
         <div className="flex h-full">
           <div className="w-[150px] h-full"></div>
           <div className="flex flex-col gap-[20px]">
-            <div className="flex w-full">
+            <div className="flex w-full ml-[30px]">
               <PostContainer />
             </div>
           </div>
-          <Content />
+          <div className="ml-[30px]">
+            <Content />
+          </div>
         </div>
       </div>
     </>

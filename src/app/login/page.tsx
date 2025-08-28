@@ -1,7 +1,9 @@
+import LoginPage from "@/components/Login/LoginPage";
+
 export default function page() {
   return (
     <>
-      <h1>login Component</h1>
+      <LoginPage />
     </>
   );
 }

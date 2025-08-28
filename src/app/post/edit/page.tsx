@@ -1,7 +1,5 @@
 import MainImage from "@/components/Post/MainImage";
-import PostContainer from "@/components/Post/PostContainer";
 import Title from "@/components/Post/Title";
-import ReactQuill from "react-quill-new";
 
 export default function page() {
   return (
