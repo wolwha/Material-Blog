@@ -4,6 +4,6 @@ import PinInput from "@/components/Login/PinInput";
 import { useState } from "react";
 
 export default function LoginPage() {
-  const [auth, setAuth] = useState<boolean>(false);
+  const [auth, setAuth] = useState<boolean>(true);
   return <>{auth ? <Login /> : <PinInput />}</>;
 }

@@ -1,37 +1,51 @@
+"use client";
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaRegMoon } from "react-icons/fa";
+import { usePathname } from "next/navigation";
+import {
+  FaGithub,
+  FaLinkedin,
+  // FaRegMoon
+} from "react-icons/fa";
 import {
   MdCategory,
   MdHomeFilled,
-  MdMenu,
+  // MdMenu,
   MdOutlineSearch,
   MdOutlineWbSunny,
 } from "react-icons/md";
 
 export default function SideBar() {
+  // 현재 도메인 위치 받아오기
+  const location = usePathname();
   return (
     <>
+      {/* 사이드바 확장 기능은 추후 추가 고려 */}
       <div className="w-[90px] h-[100svh] flex justify-center items-start bg-[var(--bg-gray)] select-none relative">
         <div className="grid gap-[30px] mt-[22px]">
-          <button
+          {/* 추후 사용 가능성을 고려하여 코드는 남겨놓기 */}
+          {/* <button
             className="flex justify-center items-center size-[56px] rounded-[16px] hover:bg-[#d9d9d9] cursor-pointer"
             name="expand menu"
             id="expand menu"
             aria-label="expand menu"
           >
             <MdMenu size={25} />
-          </button>
-          <button
-            className="size-[56px] rounded-[16px] bg-[var(--color-primary)] flex justify-center items-center  cursor-pointer hover:bg-[#ded0f6]"
-            name="search"
-            id="search"
-            aria-label="search"
-          >
-            <MdOutlineSearch size={25} className="text-[var(--text-point)]" />
-          </button>
+          </button> */}
+          <Link href={"/search"}>
+            <button
+              className="size-[56px] rounded-[16px] bg-[var(--color-primary)] flex justify-center items-center  cursor-pointer hover:bg-[#ded0f6]"
+              name="search"
+              id="search"
+              aria-label="search"
+            >
+              <MdOutlineSearch size={25} className="text-[var(--text-point)]" />
+            </button>
+          </Link>
           <Link href="/">
             <button
-              className="size-[56px] rounded-[16px] text-[10px] hover:bg-[#d9d9d9] flex flex-col justify-center items-center  cursor-pointer"
+              className={`size-[56px] rounded-[16px] text-[10px] hover:bg-[#d9d9d9] flex flex-col justify-center items-center cursor-pointer ${
+                location === "/" ? "bg-[#d9d9d9]" : ""
+              }`}
               name="home"
               aria-label="home"
             >
@@ -39,14 +53,18 @@ export default function SideBar() {
               Home
             </button>
           </Link>
-          <button
-            className="size-[56px] rounded-[16px] text-[10px] hover:bg-[#d9d9d9] flex flex-col justify-center items-center  cursor-pointer"
-            name="Category"
-            aria-label="Category"
-          >
-            <MdCategory size={25} />
-            Category
-          </button>
+          <Link href={"/category"}>
+            <button
+              className={`size-[56px] rounded-[16px] text-[10px] hover:bg-[#d9d9d9] flex flex-col justify-center items-center  cursor-pointer ${
+                location === "/category" ? "bg-[#d9d9d9]" : ""
+              }`}
+              name="Category"
+              aria-label="Category"
+            >
+              <MdCategory size={25} />
+              Category
+            </button>
+          </Link>
           <a
             href="https://github.com/wolwha"
             target="_blank"
@@ -71,12 +89,13 @@ export default function SideBar() {
           </a>
         </div>
         <div className="absolute bottom-[20px] left-[14px] flex justify-center items-center flex-col gap-[20px]">
-          <button
+          {/* 추후 추가 */}
+          {/* <button
             className="rounded-[16px] size-[46px] bg-[var(--color-primary)] rotate-[45deg] border-2 border-[#BEB5CD] cursor-pointer"
             name="set color"
             id="set color"
             aria-label="set Color"
-          ></button>
+          ></button> */}
           <button
             className="cursor-pointer"
             name="darkmode"
