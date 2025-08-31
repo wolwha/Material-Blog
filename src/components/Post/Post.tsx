@@ -6,7 +6,7 @@ import Title from "./Title";
 export default function Post () {
   return (
     <>
-      <div className="flex flex-col gap-[20px] border-1">
+      <div className="flex flex-col gap-[20px]">
         {/* 제목과 대표사진 */}
         <div className="flex mt-[20px] gap-[10px] justify-center items-center">
           <Title />

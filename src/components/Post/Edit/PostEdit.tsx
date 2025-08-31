@@ -23,9 +23,8 @@ export default function PostEdit() {
           onChange={handleChange}
           height={600}
           preview="live" // preview를 'live'로 설정
-          // 이 부분이 핵심입니다.
+          data-color-mode="light"
           previewOptions={{
-            // 'prose' 클래스를 미리보기 컨테이너에 적용
             className: `${styles.markdownContent}`,
           }}
         />

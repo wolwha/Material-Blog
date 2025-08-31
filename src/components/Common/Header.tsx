@@ -32,16 +32,14 @@ export default function Header() {
               ABOUT
             </button>
           </Link>
-          <Link href={"/profile"}>
-            <button
-              className="size-[40px] rounded-full bg-[var(--color-primary)] flex justify-center items-center cursor-pointer"
-              id="Profile"
-              name="Profile"
-              aria-label="Profile"
-            >
-              <MdPerson size={25} />
-            </button>
-          </Link>
+          <button
+            className="size-[40px] rounded-full bg-[var(--color-primary)] flex justify-center items-center cursor-pointer"
+            id="Profile"
+            name="Profile"
+            aria-label="Profile"
+          >
+            <MdPerson size={25} />
+          </button>
         </div>
       </div>
     </>
