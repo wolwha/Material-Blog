@@ -1,0 +1,28 @@
+/* src/app/PostEdit.module.css */
+
+.markdownContent h1,
+.markdownContent h2,
+.markdownContent h3 {
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+/* ... 다른 스타일은 그대로 둡니다. */
+
+/* 순서 없는 목록(ul) 스타일 */
+.markdownContent ul {
+  list-style: disc; /* 점(bullet) 기호가 나타나도록 설정 */
+  padding-left: 1.5rem;
+}
+
+/* 순서 있는 목록(ol) 스타일을 추가합니다. */
+.markdownContent ol {
+  list-style: decimal; /* 숫자(1, 2, 3...) 기호가 나타나도록 설정 */
+  padding-left: 1.5rem;
+}
+
+.markdownContent code {
+  background-color: #f1f5f9;
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+}

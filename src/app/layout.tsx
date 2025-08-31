@@ -33,7 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="min-h-screen flex relative">
+        <div className="min-h-screen flex relative select-none">
           <div className="fixed top-0 left-0">
             {/* 사이드바 */}
             <SideBar />

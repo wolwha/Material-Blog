@@ -1,9 +1,12 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  FaGithub,
+  // FaLinkedin
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
     <>
-      <div className="h-[140px] flex justify-center items-center relative">
+      <div className="h-[140px] flex justify-center items-center relative select-none">
         <div className="font-semibold absolute left-[50px] top-[40px]">
           <p>Made by J.Y.Lee</p>
           <p>Designing inspired by Google&apos;s Material Design 3</p>

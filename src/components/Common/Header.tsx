@@ -22,14 +22,16 @@ export default function Header() {
             </div>
           </button>
         </Link>
-        <div className="absolute right-[30px] h-[40px] top-[23px] gap-[20px] flex">
-          <button
-            className="cursor-pointer font-semibold hover:underline"
-            id="ABOUT"
-            aria-label="ABOUT"
-          >
-            ABOUT
-          </button>
+        <div className="absolute right-[30px] h-[40px] top-[23px] gap-[20px] flex justify-center items-center">
+          <Link href={"/about"}>
+            <button
+              className="cursor-pointer font-semibold hover:underline"
+              id="ABOUT"
+              aria-label="ABOUT"
+            >
+              ABOUT
+            </button>
+          </Link>
           <button
             className="size-[40px] rounded-full bg-[var(--color-primary)] flex justify-center items-center cursor-pointer"
             id="Profile"
