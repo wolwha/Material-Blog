@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "CODERUNNER.BLOG",
   description: "CODERUNNER Blog",
   icons: {
-    icon: "/Gemini_Generated_Image_ul6ukvul6ukvul6u-다음에서-변환-png.webp",
+    icon: "/Favicon.webp",
   },
 };
 

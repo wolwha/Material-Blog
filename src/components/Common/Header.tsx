@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Logo from "/src/assets/Gemini_Generated_Image_ul6ukvul6ukvul6u-다음에서-변환-png.webp";
+import Logo from "/src/assets/Logo.webp";
 import { MdPerson } from "react-icons/md";
 import Link from "next/link";
 

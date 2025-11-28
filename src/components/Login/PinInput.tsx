@@ -9,8 +9,8 @@ export default function PinInput() {
               <p className="text-[20px]">핀코드를 입력해 주세요</p>
             </div>
             <input
-              type="number"
-              className="w-[400px] mt-[20px] h-[40px] utilities text-center outline-0 bg-[var(--color-primary)] rounded-[10px]"
+              type="password"
+              className="w-[400px] mt-[20px] h-[40px] utilities text-center outline-0 border-b-1 border-black"
               name="핀코드 입력칸"
               aria-label="핀코드 입력칸"
             />
