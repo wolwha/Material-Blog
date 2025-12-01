@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Logo from "/src/assets/Logo.webp";
 import { MdPerson } from "react-icons/md";
