@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { MdCategory, MdHomeFilled } from "react-icons/md";
 
-export default function FloatingButton () {
+export default function FloatingButton (pathname:{pathname: string}) {
+  // const path = useState<boolean>(true)
+  console.log(pathname)
   return (
     <>
-      <div className="flex gap-[8px] sticky bottom-0">
+      <div className="flex gap-[8px] sticky bottom-0 bg-white px-[10px] py-[10px] rounded-[100px] shadow-xl">
         <Link href={"/"}>
           <button className="w-[120.5px] h-[56px] rounded-[100px] flex justify-center items-center hover:cursor-pointer bg-[var(--color-point)] text-white">
             <MdHomeFilled />

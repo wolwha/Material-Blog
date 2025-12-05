@@ -5,7 +5,6 @@ import SideBar from "@/components/Common/SideBar";
 import Header from "@/components/Common/Header";
 import Footer from "@/components/Common/Footer";
 import MobileHeader from "@/components/Mobile/Common/MobileHeader";
-import FloatingButton from "@/components/Mobile/Common/FloatingButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,17 +50,13 @@ export default function RootLayout({
                 <div className="h-full rounded-[20px] bg-white justify-center items-start sm:flex">
                   {children}
                 </div>
-                {/* 모바일 플로팅 메뉴 */}
-                <div className="sm:hidden sticky bottom-[25px] justify-center flex">
-                  <FloatingButton/>
-                </div>
                 {/* 푸터 */}
                 <Footer />
               </div>
             </div>
           </div>
         </div>
-      </body>
+      </body> 
     </html>
   );
 }

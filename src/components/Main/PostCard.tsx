@@ -5,7 +5,7 @@ export default function PostCard() {
   return (
     <>
       <Link href={"/post/1"}>
-        <div className="sm:w-[380px] sm:h-[340px] w-[100vw - 32px] px-[16px] rounded-[20px] bg-[#f4effc] flex justify-center cursor-pointer hover:scale-103 hover:shadow-2xl transform transition-transform relative pb-[40px]">
+        <div className="sm:w-[380px] sm:h-[340px] w-[100vw-32px] px-[16px] rounded-[20px] bg-[#f4effc] flex justify-center cursor-pointer hover:scale-103 hover:shadow-2xl transform transition-transform relative pb-[40px]">
           <div className="mt-[20px] w-full">
             {/* 포스트 이미지 에리어 */}
             <div className="sm:w-[350px] h-[200px] rounded-[20px] bg-[#d9d9d9] relative">
