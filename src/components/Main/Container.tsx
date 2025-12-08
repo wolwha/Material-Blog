@@ -13,6 +13,14 @@ export default function Container() {
         <PostCard />
         <PostCard />
         <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
       </div>
     </>
   );
