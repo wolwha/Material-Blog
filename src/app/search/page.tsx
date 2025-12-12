@@ -3,7 +3,7 @@ import { MdSearch } from "react-icons/md";
 export default function page() {
   return (
     <>
-      <div className="w-full px-[200px]">
+      <div className="w-full sm:px-[200px] px-[10px]">
         <div className="w-full relative flex">
           <input
             type="text"

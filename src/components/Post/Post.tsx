@@ -8,19 +8,19 @@ export default function Post () {
     <>
       <div className="flex flex-col gap-[20px]">
         {/* 제목과 대표사진 */}
-        <div className="flex mt-[20px] gap-[10px] justify-center items-center">
+        <div className="flex flex-col sm:mt-[20px] sm:gap-[10px] justify-center items-center">
           <Title />
           <MainImage />
         </div>
         {/* 내용과 목차 */}
         <div className="flex h-full">
-          <div className="w-[150px] h-full"></div>
+          <div className="sm:w-[150px] h-full"></div>
           <div className="flex flex-col gap-[20px]">
-            <div className="flex w-full ml-[30px]">
+            <div className="flex w-full sm:ml-[30px] mx-[10px]">
               <PostContainer />
             </div>
           </div>
-          <div className="ml-[30px]">
+          <div className="sm:ml-[30px]">
             <Content />
           </div>
         </div>

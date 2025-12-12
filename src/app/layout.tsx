@@ -32,9 +32,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-y-scroll custom-scrollbar`}
       >
-        <div className="min-h-screen flex relative select-none">
+        <div className="min-h-screen flex relative select-none w-auto">
           <div className="sm:fixed sm:top-0 sm:left-0 hidden none sm:block">
             {/* 사이드바 */}
             <SideBar />

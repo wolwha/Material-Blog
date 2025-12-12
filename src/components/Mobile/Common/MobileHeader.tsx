@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "/src/assets/Logo.webp";
+import Logo from "../../../assets/Logo.webp";
 import { MdOutlineDarkMode, MdOutlineSearch } from "react-icons/md";
 
 export default function MobileHeader () {
