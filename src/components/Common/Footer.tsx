@@ -7,10 +7,12 @@ export default function Footer() {
   return (
     <>
       <div className="sm:h-[140px] h-[100px] flex justify-center items-center sm:relative select-none mt-[20px] sm:mt-[0px] bg-[var(--color-primary)] absolute inset-x-0 bottom-0 w-full">
+        {/* PC 푸터 적용 텍스트 */}
         <div className="font-semibold sm:absolute sm:left-[50px] sm:top-[40px] sm:text-[16px] text-[14px] hidden sm:flex-col sm:flex">
           <p>Made by J.Y.Lee</p>
           <p>Designing inspired by Google&apos;s Material Design 3</p>
         </div>
+        {/* 모바일 푸터 적용 텍스트 */}
         <div className="font-semibold sm:absolute sm:left-[50px] sm:top-[40px] sm:text-[16px] text-[14px] sm:hidden">
           <p>Made by J.Y.Lee</p>
           <p>Designing inspired by Material Design 3</p>
