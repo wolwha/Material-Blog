@@ -4,6 +4,7 @@ import "./globals.css";
 import SideBar from "@/components/Common/SideBar";
 import Header from "@/components/Common/Header";
 import Footer from "@/components/Common/Footer";
+import MobileHeader from "@/components/Mobile/Common/MobileHeader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   title: "CODERUNNER.BLOG",
   description: "CODERUNNER Blog",
   icons: {
-    icon: "/Gemini_Generated_Image_ul6ukvul6ukvul6u-다음에서-변환-png.webp",
+    icon: "/favicon.webp",
   },
 };
 
@@ -29,23 +30,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-y-scroll custom-scrollbar`}
       >
-        <div className="min-h-screen flex relative select-none">
-          <div className="fixed top-0 left-0">
+        <div className="min-h-screen flex relative select-none w-auto">
+          <div className="sm:fixed sm:top-0 sm:left-0 hidden none sm:block">
             {/* 사이드바 */}
             <SideBar />
           </div>
-          <div className="flex flex-col grow w-full ml-[90px]">
+          <div className="sm:flex sm:flex-col grow w-full sm:ml-[90px]">
             {/* 헤더 */}
             <Header />
+            <MobileHeader />
             {/* 컨테이너 */}
-            <div className="h-full bg-[var(--bg-gray)] flex">
+            <div className="sm:h-full sm:bg-[var(--bg-gray)] sm:flex">
               {/* 컨텐츠 */}
-              <div className="w-full min-h-[calc(100vh-105px)] bg-[var(--color-primary)] rounded-tl-[20px] px-[30px] pt-[40px] flex flex-col">
-                <div className="h-full rounded-[20px] bg-white justify-center items-start flex">
+              <div className="w-full sm:min-h-[calc(100vh-105px)] sm:bg-[var(--color-primary)] sm:rounded-tl-[20px] sm:px-[30px] sm:pt-[40px] flex flex-col">
+                <div className="h-full rounded-[20px] bg-white justify-center items-start sm:flex">
                   {children}
                 </div>
                 {/* 푸터 */}
@@ -54,7 +56,7 @@ export default function RootLayout({
             </div>
           </div>
         </div>
-      </body>
+      </body> 
     </html>
   );
 }

@@ -7,7 +7,7 @@ export default function CategoryPage() {
   const location = usePathname();
   return (
     <>
-      <div className="flex flex-col pt-[25px] px-[10px] w-full">
+      <div className="flex flex-col pt-[25px] w-full">
         {location === "/category" ? <CategoryGroup /> : <CategoryDetail />}
       </div>
     </>

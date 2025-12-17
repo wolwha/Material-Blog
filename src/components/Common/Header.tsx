@@ -1,12 +1,13 @@
+"use client"
 import Image from "next/image";
-import Logo from "/src/assets/Gemini_Generated_Image_ul6ukvul6ukvul6u-다음에서-변환-png.webp";
+import Logo from "../../assets/Logo.webp";
 import { MdPerson } from "react-icons/md";
 import Link from "next/link";
 
 export default function Header() {
   return (
     <>
-      <div className="w-full h-[105px] bg-[var(--bg-gray)] flex justify-start items-center relative select-none">
+      <div className="w-full h-[105px] bg-[var(--bg-gray)] sm:flex justify-start items-center relative select-none hidden">
         <Link href={"/"}>
           <button
             className="flex gap-[10px] ml-[13px] cursor-pointer"
