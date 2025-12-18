@@ -6,7 +6,7 @@ export default function EditButton() {
     <>
       <Link href={"/post/edit"}>
         <button
-          className="size-[60px] flex justify-center items-center rounded-[20px] bg-[var(--color-primary)] fixed right-[70px] bottom-[40px] z-[50] shadow-md shadow-gray-700 cursor-pointer"
+          className="size-[60px] sm:flex justify-center items-center rounded-[20px] bg-[var(--color-primary)] fixed right-[70px] bottom-[40px] z-[50] shadow-md shadow-gray-700 cursor-pointer hidden"
           aria-label="Edit"
         >
           <MdEdit size={20} />

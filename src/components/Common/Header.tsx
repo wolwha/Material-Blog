@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function Header() {
   return (
     <>
-      <div className="w-full h-[105px] bg-[var(--bg-gray)] flex justify-start items-center relative select-none">
+      <div className="w-full h-[105px] bg-[var(--bg-gray)] sm:flex justify-start items-center relative select-none hidden">
         <Link href={"/"}>
           <button
             className="flex gap-[10px] ml-[13px] cursor-pointer"

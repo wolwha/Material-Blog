@@ -12,7 +12,17 @@ const config = {
   theme: {
     extend: {},
   },
-  plugins: [typography],
+  plugins: [typography, function ({ addUtilities }) {
+      addUtilities({
+        '.scrollbar-stable': {
+          'scrollbar-gutter': 'stable',
+        },
+        '.scrollbar-stable-both': {
+          'scrollbar-gutter': 'stable both-edges',
+        },
+      })
+    },
+],
 };
 
 export default config;
