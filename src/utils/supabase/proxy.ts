@@ -23,10 +23,16 @@ export async function updateSession(request: NextRequest) {
           
           // 응답 객체에도 쿠키를 업데이트해줘야 브라우저에 반영됨
           response = NextResponse.next({
-            request,
+            request: {
+              headers: request.headers,
+            },
           })
-          cookiesToSet.forEach(({ name, value, options }) =>
-            response.cookies.set(name, value, options)
+
+          cookiesToSet.forEach(({ name, value, options }) =>{
+            const {maxAge, expires, ...sessionOptions} = options
+
+            response.cookies.set(name, value, sessionOptions)
+          }
           )
         },
       },

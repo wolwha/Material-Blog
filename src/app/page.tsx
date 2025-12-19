@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Container from "@/components/Main/Container";
 // import EditButton from "@/components/Main/EditButton";
 import FloatingButton from "@/components/Mobile/Common/floatingButton";

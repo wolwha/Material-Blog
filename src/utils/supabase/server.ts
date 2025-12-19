@@ -14,8 +14,10 @@ export async function createClient() {
         },
         setAll(cookiesToSet) {
           try {
-            cookiesToSet.forEach(({ name, value, options }) =>
-              cookieStore.set(name, value, options)
+            cookiesToSet.forEach(({ name, value, options }) =>{
+                const {maxAge, expires, ...sessionOptions} = options
+                cookieStore.set(name, value, sessionOptions)
+            }
             )
           } catch {
             // Server Component에서 쿠키를 쓰려고 할 때 발생하는 에러 무시
