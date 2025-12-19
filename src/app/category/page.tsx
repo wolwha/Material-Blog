@@ -1,6 +1,6 @@
 "use client"
 import CategoryPage from "@/components/Category/CategoryPage";
-import FloatingButton from "@/components/Mobile/Common/FloatingButton";
+import FloatingButton from "@/components/Mobile/Common/floatingButton";
 import { usePathname } from "next/navigation";
 
 export default function Page() {
