@@ -9,10 +9,14 @@ export default function Login() {
       provider: "google",
       options: {
         redirectTo: `${location.origin}/auth/confirm/callback`,
+        queryParams: {
+          access_type: 'offline', // Refresh Token을 확실하게 받기 위해 권장
+          prompt: 'consent', // 매번 구글 계정 선택창을 띄우고 싶다면 추가
+        },
       },
     });
-    // console.log(`${location.origin}`)
   };
+
   return (
     <>
       <div className="flex justify-center items-center">

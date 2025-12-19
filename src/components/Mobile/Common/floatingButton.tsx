@@ -1,7 +1,10 @@
+"use client"
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MdCategory, MdHomeFilled } from "react-icons/md";
 
-export default function FloatingButton (pathname:{pathname: string}) {
+export default function FloatingButton () {
+  const pathname = usePathname()
   // const path = useState<boolean>(true)
   console.log(pathname)
   return (
