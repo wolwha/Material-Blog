@@ -3,8 +3,15 @@ import Image from "next/image";
 import Logo from "@/assets/Logo.webp";
 import { MdPerson } from "react-icons/md";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { User } from "@supabase/supabase-js";
+import { useAuthStore } from "@/stores/userStore";
 
 export default function Header() {
+  // const [userData, setUserData] = useState<User|null>(null)
+
+  // const {user} = useAuthStore()
+  // setUserData(user)
   return (
     <>
       <div className="w-full h-[105px] bg-[var(--bg-gray)] sm:flex justify-start items-center relative select-none hidden">
