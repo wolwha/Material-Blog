@@ -6,7 +6,6 @@ import { MdCategory, MdHomeFilled } from "react-icons/md";
 export default function FloatingButton () {
   const pathname = usePathname()
   // const path = useState<boolean>(true)
-  console.log(pathname)
   return (
     <>
       <div className="flex gap-[8px] sticky bottom-0 bg-white px-[10px] py-[10px] rounded-[100px] shadow-xl">

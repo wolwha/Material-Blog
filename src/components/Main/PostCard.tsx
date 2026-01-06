@@ -1,7 +1,12 @@
 "use client";
 import Link from "next/link";
 
-export default function PostCard() {
+interface Post {
+  Title: any
+}
+
+export default function PostCard({Title}: Post) {
+  console.log(Title)
   return (
     <>
       <Link href={"/post/1"}>
@@ -14,7 +19,7 @@ export default function PostCard() {
               </span>
             </div>
             <div className="sm:gap-[10px] sm:mt-[20px] mt-[20px]">
-              <p className="sm:text-[26px] text-[20px] font-bold">제목</p>
+              <p className="sm:text-[26px] text-[20px] font-bold">{Title}</p>
               <p className="text-[16px]">내용</p>
               <p className="absolute right-[20px] text-[16px]">작성일</p>
             </div>
