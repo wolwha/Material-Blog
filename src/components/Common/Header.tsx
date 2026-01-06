@@ -1,10 +1,14 @@
 "use client"
 import Image from "next/image";
-import Logo from "../../assets/Logo.webp";
+import Logo from "@/assets/Logo.webp";
 import { MdPerson } from "react-icons/md";
 import Link from "next/link";
+import { useAuthStore } from "@/stores/userStore";
+import { useEffect, useState } from "react";
+import { User } from "@supabase/supabase-js";
 
 export default function Header() {
+  const {user} = useAuthStore()
   return (
     <>
       <div className="w-full h-[105px] bg-[var(--bg-gray)] sm:flex justify-start items-center relative select-none hidden">
@@ -33,14 +37,15 @@ export default function Header() {
               ABOUT
             </button>
           </Link>
-          <button
+          {user === null ? null : <button
             className="size-[40px] rounded-full bg-[var(--color-primary)] flex justify-center items-center cursor-pointer"
             id="Profile"
             name="Profile"
             aria-label="Profile"
           >
-            <MdPerson size={25} />
-          </button>
+            {user != null ? <Image src={user?.user_metadata.avatar_url} alt="Profile" width="40" height="40" className="rounded-full"/> :
+            <MdPerson size={25} />}
+          </button>}
         </div>
       </div>
     </>
