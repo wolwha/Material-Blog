@@ -19,7 +19,7 @@ export default function Header() {
             aria-label="Logo"
           >
             <div className="size-[56px]">
-              <Image src={Logo} alt="Logo" width={56} height={56} />
+              <Image src={Logo} alt="Logo" width="56" height="56" />
             </div>
             <div className="flex flex-col justify-start items-start">
               <p className="text-[20px] font-semibold">CODE RUNNER</p>

@@ -8,7 +8,7 @@ export default function Post () {
     <>
       <div className="flex flex-col gap-[20px]">
         {/* 제목과 대표사진 */}
-        <div className="flex flex-col sm:mt-[20px] sm:gap-[10px] justify-center items-center">
+        <div className="flex flex-col sm:flex-row sm:mt-[20px] sm:gap-[10px] justify-center items-center">
           <Title />
           <MainImage />
         </div>

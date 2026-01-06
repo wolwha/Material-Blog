@@ -28,7 +28,7 @@ export default function Container({posts}: Props) {
         <PostCard /> */}
         {posts?.map((_, idx) => (
           <div key={idx}>
-            <PostCard Title={posts[idx].Title}/>
+            <PostCard title={posts[idx].Title} content={posts[idx].Content} date={posts[idx].created_at} category={posts[idx].Category} id={posts[idx].id} tags={posts[idx].Tags} thumbnail={posts[idx].Thumbnail}/>
           </div>
         ))}
       </div>
