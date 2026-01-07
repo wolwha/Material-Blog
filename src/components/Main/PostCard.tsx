@@ -6,7 +6,7 @@ export default function PostCard({title, content, date, category, id, tags, thum
   const day = new Date(date)
   return (
     <>
-      <Link href={`/post/${id}`}>
+      <Link href={`/post/${id}`} aria-label={`${title} 게시글로 이동`}>
         <div className="sm:w-[380px] sm:h-[340px] w-[100vw-32px] px-[16px] rounded-[20px] bg-[#f4effc] flex justify-center cursor-pointer hover:scale-103 hover:shadow-2xl transform transition-transform relative pb-[40px]">
           <div className="mt-[20px] w-full">
             {/* 포스트 이미지 에리어 */}

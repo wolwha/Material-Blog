@@ -8,6 +8,7 @@ export default function TitleEdit() {
             type="text"
             className="text-[36px] font-semibold bg-white rounded-[10px] outline-0 px-[10px] max-w-[450px]"
             placeholder="제목을 입력하세요"
+            aria-label="제목 입력 상자"
           />
           {/* 드롭다운 메뉴로 추후 변경 */}
           <p className="text-[16px]">카테고리</p>
