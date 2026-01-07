@@ -1,5 +1,38 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## 폴더 구조
+---
+📦app
+ ┣ 📂about
+ ┃ ┣ 📜layout.tsx
+ ┃ ┗ 📜page.tsx
+ ┣ 📂auth
+ ┃ ┗ 📂confirm
+ ┃ ┃ ┗ 📂callback
+ ┃ ┃ ┃ ┗ 📜route.ts
+ ┣ 📂category
+ ┃ ┣ 📂[categoryid]
+ ┃ ┃ ┗ 📜page.tsx
+ ┃ ┣ 📜layout.tsx
+ ┃ ┗ 📜page.tsx
+ ┣ 📂login
+ ┃ ┣ 📜layout.tsx
+ ┃ ┗ 📜page.tsx
+ ┣ 📂post
+ ┃ ┣ 📂edit
+ ┃ ┃ ┗ 📜page.tsx
+ ┃ ┣ 📂[postid]
+ ┃ ┃ ┗ 📜page.tsx
+ ┃ ┗ 📜layout.tsx
+ ┣ 📂search
+ ┃ ┣ 📂[searchid]
+ ┃ ┃ ┗ 📜page.tsx
+ ┃ ┣ 📜layout.tsx
+ ┃ ┗ 📜page.tsx
+ ┣ 📜globals.css
+ ┣ 📜layout.tsx
+ ┗ 📜page.tsx
+
 ## Getting Started
 
 First, run the development server:
