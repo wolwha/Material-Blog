@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## 폴더 구조
 ---
-📦app
+📦app</br>
  ┣ 📂about</br>
  ┃ ┣ 📜layout.tsx</br>
  ┃ ┗ 📜page.tsx</br>
