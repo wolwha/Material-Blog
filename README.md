@@ -2,36 +2,98 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## 폴더 구조
 ---
-📦app</br>
- ┣ 📂about</br>
+📦src</br>
+ ┣ 📂api</br>
+ ┃ ┣ 📜auth.ts</br>
+ ┃ ┗ 📜userApi.ts</br>
+ ┣ 📂app</br>
+ ┃ ┣ 📂about</br>
+ ┃ ┃ ┣ 📜layout.tsx</br>
+ ┃ ┃ ┗ 📜page.tsx</br>
+ ┃ ┣ 📂auth</br>
+ ┃ ┃ ┗ 📂confirm</br>
+ ┃ ┃ ┃ ┗ 📂callback</br>
+ ┃ ┃ ┃ ┃ ┗ 📜route.ts</br>
+ ┃ ┣ 📂category</br>
+ ┃ ┃ ┣ 📂[categoryid]</br>
+ ┃ ┃ ┃ ┗ 📜page.tsx</br>
+ ┃ ┃ ┣ 📜layout.tsx</br>
+ ┃ ┃ ┗ 📜page.tsx</br>
+ ┃ ┣ 📂login</br>
+ ┃ ┃ ┣ 📜layout.tsx</br>
+ ┃ ┃ ┗ 📜page.tsx</br>
+ ┃ ┣ 📂post</br>
+ ┃ ┃ ┣ 📂edit</br>
+ ┃ ┃ ┃ ┗ 📜page.tsx</br>
+ ┃ ┃ ┣ 📂[postid]</br>
+ ┃ ┃ ┃ ┗ 📜page.tsx</br>
+ ┃ ┃ ┗ 📜layout.tsx</br>
+ ┃ ┣ 📂search</br>
+ ┃ ┃ ┣ 📂[searchid]</br>
+ ┃ ┃ ┃ ┗ 📜page.tsx</br>
+ ┃ ┃ ┣ 📜layout.tsx</br>
+ ┃ ┃ ┗ 📜page.tsx</br>
+ ┃ ┣ 📜globals.css</br>
  ┃ ┣ 📜layout.tsx</br>
  ┃ ┗ 📜page.tsx</br>
- ┣ 📂auth</br>
- ┃ ┗ 📂confirm</br>
- ┃ ┃ ┗ 📂callback</br>
- ┃ ┃ ┃ ┗ 📜route.ts</br>
- ┣ 📂category</br>
- ┃ ┣ 📂[categoryid]</br>
- ┃ ┃ ┗ 📜page.tsx</br>
- ┃ ┣ 📜layout.tsx</br>
- ┃ ┗ 📜page.tsx</br>
- ┣ 📂login</br>
- ┃ ┣ 📜layout.tsx</br>
- ┃ ┗ 📜page.tsx</br>
- ┣ 📂post</br>
- ┃ ┣ 📂edit</br>
- ┃ ┃ ┗ 📜page.tsx</br>
- ┃ ┣ 📂[postid]</br>
- ┃ ┃ ┗ 📜page.tsx</br>
- ┃ ┗ 📜layout.tsx</br>
- ┣ 📂search</br>
- ┃ ┣ 📂[searchid]</br>
- ┃ ┃ ┗ 📜page.tsx</br>
- ┃ ┣ 📜layout.tsx</br>
- ┃ ┗ 📜page.tsx</br>
- ┣ 📜globals.css</br>
- ┣ 📜layout.tsx</br>
- ┗ 📜page.tsx</br>
+ ┣ 📂assets</br>
+ ┃ ┗ 📜Logo.webp</br>
+ ┣ 📂components</br>
+ ┃ ┣ 📂Category</br>
+ ┃ ┃ ┣ 📜CategoryDetail.tsx</br>
+ ┃ ┃ ┣ 📜CategoryGroup.tsx</br>
+ ┃ ┃ ┗ 📜CategoryPage.tsx</br>
+ ┃ ┣ 📂Common</br>
+ ┃ ┃ ┣ 📜CategoryMenu.tsx</br>
+ ┃ ┃ ┣ 📜Footer.tsx</br>
+ ┃ ┃ ┣ 📜Header.tsx</br>
+ ┃ ┃ ┗ 📜SideBar.tsx</br>
+ ┃ ┣ 📂Login</br>
+ ┃ ┃ ┣ 📜Login.tsx</br>
+ ┃ ┃ ┣ 📜LoginPage.tsx</br>
+ ┃ ┃ ┗ 📜PinInput.tsx</br>
+ ┃ ┣ 📂Main</br>
+ ┃ ┃ ┣ 📜Container.tsx</br>
+ ┃ ┃ ┣ 📜EditButton.tsx</br>
+ ┃ ┃ ┗ 📜PostCard.tsx</br>
+ ┃ ┣ 📂Mobile</br>
+ ┃ ┃ ┗ 📂Common</br>
+ ┃ ┃ ┃ ┣ 📜floatingButton.tsx</br>
+ ┃ ┃ ┃ ┗ 📜MobileHeader.tsx</br>
+ ┃ ┣ 📂Post</br>
+ ┃ ┃ ┣ 📂Edit</br>
+ ┃ ┃ ┃ ┣ 📜Button.tsx</br>
+ ┃ ┃ ┃ ┣ 📜Edit.tsx</br>
+ ┃ ┃ ┃ ┣ 📜ImageUpload.tsx</br>
+ ┃ ┃ ┃ ┣ 📜PostEdit.module.css</br>
+ ┃ ┃ ┃ ┣ 📜PostEdit.tsx</br>
+ ┃ ┃ ┃ ┣ 📜TagEdit.tsx</br>
+ ┃ ┃ ┃ ┗ 📜TitleEdit.tsx</br>
+ ┃ ┃ ┣ 📜Content.tsx</br>
+ ┃ ┃ ┣ 📜MainImage.tsx</br>
+ ┃ ┃ ┣ 📜Post.tsx</br>
+ ┃ ┃ ┣ 📜PostContainer.tsx</br>
+ ┃ ┃ ┣ 📜Tag.tsx</br>
+ ┃ ┃ ┗ 📜Title.tsx</br>
+ ┃ ┣ 📂Providers</br>
+ ┃ ┃ ┗ 📜AuthProvider.tsx</br>
+ ┃ ┗ 📂Search</br>
+ ┃ ┃ ┗ 📜ResultPage.tsx</br>
+ ┣ 📂lib</br>
+ ┣ 📂stores</br>
+ ┃ ┣ 📜postStore.ts</br>
+ ┃ ┗ 📜userStore.ts</br>
+ ┣ 📂types</br>
+ ┃ ┣ 📜postType.ts</br>
+ ┃ ┗ 📜supabase.ts</br>
+ ┣ 📂utils</br>
+ ┃ ┗ 📂supabase</br>
+ ┃ ┃ ┣ 📜client.ts</br>
+ ┃ ┃ ┣ 📜proxy.ts</br>
+ ┃ ┃ ┗ 📜server.ts</br>
+ ┗ 📜proxy.ts</br>
+
+- 폴더 구조는 변경되거나 추가될 수 있음(개발중)
 
 ## Getting Started
 
