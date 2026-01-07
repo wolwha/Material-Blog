@@ -1,8 +1,8 @@
 import { create } from 'zustand';
-import { User } from '@supabase/supabase-js'; // 👈 공식 타입 import
+import { User } from '@supabase/supabase-js';
 
 interface AuthState {
-  user: User | null; // 👈 공식 타입 사용
+  user: User | null;
   isAuthenticated: boolean;
   setUser: (user: User | null) => void;
   clearUser: () => void;
