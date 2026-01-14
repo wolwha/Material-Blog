@@ -10,8 +10,10 @@ import { cookies } from "next/headers";
 export default async function Page() {
   const supabase = await createClient()
   const cookieStore = await cookies()
+  // 쿠키에 특정 쿠키가 존재하는지 확인
   const hasCookie = cookieStore.has('sb-iziqhetiqqnkxiyymwsd-auth-token-code-verifier')
-  const fetchResult = await supabase.from("Posts").select("*")
+  // Posts의 데이터를 전부 받아오기
+  const fetchResult = await supabase.from("Posts").select("*").order("created_at", {ascending: false})
   return (
     <>
       <div className="h-full rounded-[20px] bg-white justify-center items-start flex">
