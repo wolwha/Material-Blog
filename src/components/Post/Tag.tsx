@@ -5,7 +5,7 @@ export default function Tag() {
     <>
       <div className="w-auto rounded-[5px] bg-[#d9d9d9] px-[5px] flex justify-center text-center items-center">
         <p># 태그</p>
-        <button className="ml-[3px] cursor-pointer text-center">
+        <button className="ml-[3px] cursor-pointer text-center" aria-label="태그 버튼">
           <MdOutlineClose />
         </button>
       </div>

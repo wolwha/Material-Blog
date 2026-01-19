@@ -5,7 +5,7 @@ export default function TagEdit() {
     <>
       <div className="flex gap-[10px] w-full">
         <input type="text" className="w-full border-1 rounded-[5px]" />
-        <button className="w-[85px] rounded-[10px] bg-[var(--color-primary)]">
+        <button className="w-[85px] rounded-[10px] bg-[var(--color-primary)]" aria-label="태그 추가 버튼">
           추가
         </button>
       </div>

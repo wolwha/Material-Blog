@@ -12,30 +12,28 @@ export default function Header() {
   return (
     <>
       <div className="w-full h-[105px] bg-[var(--bg-gray)] sm:flex justify-start items-center relative select-none hidden">
-        <Link href={"/"}>
-          <button
+        <Link href={"/"} aria-label="홈으로 이동">
+          <div
             className="flex gap-[10px] ml-[13px] cursor-pointer"
             id="Logo"
-            aria-label="Logo"
           >
             <div className="size-[56px]">
-              <Image src={Logo} alt="Logo" width={56} height={56} />
+              <Image src={Logo} alt="Logo" width="56" height="56" />
             </div>
             <div className="flex flex-col justify-start items-start">
               <p className="text-[20px] font-semibold">CODE RUNNER</p>
               <p className="text-[10px] font-semibold">.BLOG</p>
             </div>
-          </button>
+          </div>
         </Link>
         <div className="absolute right-[30px] h-[40px] top-[23px] gap-[20px] flex justify-center items-center">
-          <Link href={"/about"}>
-            <button
+          <Link href={"/about"} aria-label="정보 페이지로 이동">
+            <div
               className="cursor-pointer font-semibold hover:underline"
               id="ABOUT"
-              aria-label="ABOUT"
             >
               ABOUT
-            </button>
+            </div>
           </Link>
           {user === null ? null : <button
             className="size-[40px] rounded-full bg-[var(--color-primary)] flex justify-center items-center cursor-pointer"
