@@ -9,12 +9,12 @@ export default function PostCard({Title, Content, created_at, Category, id, Tags
   return (
     <>
       <Link href={`/post/${id}`} aria-label={`${Title} 게시글로 이동`}>
-        <div className="sm:w-[380px] sm:h-[340px] w-[100vw-32px] px-[16px] rounded-[20px] bg-[#f4effc] flex justify-center cursor-pointer hover:scale-103 hover:shadow-2xl transform transition-transform relative pb-[40px]">
+        <div className="sm:w-[380px] sm:h-[340px] w-[100vw-32px] px-[16px] rounded-[20px] bg-[var(--color-card)] flex justify-center cursor-pointer hover:scale-103 hover:shadow-2xl transform transition-transform relative pb-[40px]">
           <div className="mt-[20px] w-full">
             {/* 포스트 이미지 에리어 */}
             {/* rounded가 이미지에도 적용되려면 overflow-hidden이 필요합니다 */}
-            <div className="sm:w-[350px] h-[200px] rounded-[20px] bg-[#d9d9d9] relative overflow-hidden">
-              <span className="bg-[white] rounded-full py-[2px] px-[10px] absolute top-[5px] right-[5px] z-10">
+            <div className="sm:w-[350px] h-[200px] rounded-[8px] bg-[#d9d9d9] relative overflow-hidden">
+              <span className="bg-[var(--color-white)] rounded-[6px] py-[2px] px-[10px] absolute top-[5px] right-[5px] z-10">
                 {Category}
               </span>
               
@@ -35,9 +35,7 @@ export default function PostCard({Title, Content, created_at, Category, id, Tags
               <p className="absolute right-[20px] text-[16px]">{day.getFullYear() + "." + (day.getMonth() + 1).toString().padStart(2, '0') + "." +day.getDate().toString().padStart(2, "0")}</p>
             </div>
             <div>
-              <span>
-                {Tags}
-              </span>
+              <p>{"#" + Tags}</p>
             </div>
           </div>
         </div>

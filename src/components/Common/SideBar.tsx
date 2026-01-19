@@ -1,4 +1,5 @@
 "use client";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -13,14 +14,18 @@ import {
   MdOutlineSearch,
   MdOutlineWbSunny,
 } from "react-icons/md";
+import DarkmodeButton from "./DarkmodeButton";
 
 export default function SideBar() {
   // 현재 도메인 위치 받아오기
   const location = usePathname();
+  const themeToggle = () => {
+    const {theme, setTheme} = useTheme()
+  }
   return (
     <>
       {/* 사이드바 확장 기능은 추후 추가 고려 */}
-      <div className="w-[90px] h-[100svh] flex justify-center items-start bg-[var(--bg-gray)] select-none relative">
+      <div className="w-[90px] h-[100svh] flex justify-center items-start bg-[var(--color-gray)] select-none relative">
         <div className="grid gap-[30px] mt-[22px]">
           {/* 추후 사용 가능성을 고려하여 코드는 남겨놓기 */}
           {/* <button
@@ -33,7 +38,7 @@ export default function SideBar() {
           </button> */}
           <Link href={"/search"}>
             <button
-              className="size-[56px] rounded-[16px] bg-[var(--color-primary)] flex justify-center items-center  cursor-pointer hover:bg-[#ded0f6]"
+              className="size-[56px] rounded-[16px] bg-[var(--color-search)] flex justify-center items-center cursor-pointer hover:bg-[var(--color-search-hover)]"
               name="search"
               id="search"
               aria-label="search"
@@ -44,7 +49,7 @@ export default function SideBar() {
           <Link href="/">
             <button
               className={`size-[56px] rounded-[16px] text-[10px] hover:bg-[#d9d9d9] flex flex-col justify-center items-center cursor-pointer ${
-                location === "/" ? "bg-[#d9d9d9]" : ""
+                location === "/" ? "bg-[#d9d9d9] text-black" : ""
               }`}
               name="home"
               aria-label="home"
@@ -96,18 +101,7 @@ export default function SideBar() {
             id="set color"
             aria-label="set Color"
           ></button> */}
-          <button
-            className="cursor-pointer"
-            name="darkmode"
-            id="darkmode"
-            aria-label="darkmode"
-          >
-            <div className="w-[62px] h-[32px] rounded-[16px] bg-[var(--color-primary)] flex items-center border-2 border-[#BEB5CD]">
-              <div className="size-[24px] bg-white rounded-full mx-[2px] flex justify-center items-center">
-                <MdOutlineWbSunny />
-              </div>
-            </div>
-          </button>
+          <DarkmodeButton/>
         </div>
       </div>
     </>

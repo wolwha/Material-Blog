@@ -1,10 +1,10 @@
 "use client";
 import "react-quill-new/dist/quill.snow.css";
-import MainImage from "../MainImage";
 import TitleEdit from "./TitleEdit";
 import PostEdit from "./PostEdit";
 import Button from "./Button";
 import TagEdit from "./TagEdit";
+import ImageUpload from "./ImageUpload";
 
 export default function Edit() {
   return (
@@ -14,7 +14,7 @@ export default function Edit() {
         <div className="flex mt-[20px] gap-[10px] justify-center items-center">
           <TitleEdit />
           {/* 이미지 삽입부분으로 변경 */}
-          <MainImage />
+          <ImageUpload />
         </div>
         {/* 내용 입력 에리어 */}
         <PostEdit />

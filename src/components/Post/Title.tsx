@@ -16,7 +16,7 @@ export default function Title({title, date, category}: test) {
     <>
       <div className="sm:min-w-[500px] sm:h-[220px] bg-[var(--color-primary)] flex justify-start items-center sm:rounded-[20px] sm:px-[50px] relative w-full">
         <div className="ml-[20px] my-[12px]">
-          <p className="text-[16px]">{postDate.getFullYear() + "." + postDate.getMonth().toLocaleString().padStart(2, "0") + "." + postDate.getDay().toLocaleString().padStart(2, "0")}</p>
+          <p className="text-[16px]">{postDate.getFullYear() + "." + (postDate.getMonth() + 1).toLocaleString().padStart(2, "0") + "." + postDate.getDate().toLocaleString().padStart(2, "0")}</p>
           <p className="text-[36px] font-semibold">{title}</p>
           <p className="text-[16px]">{category}</p>
         </div>

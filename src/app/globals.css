@@ -15,12 +15,34 @@
 }
 
 :root {
-  --color-primary: #e8def8;
+  --color-primary: #655692;
   --color-white: #ffffff;
   --color-dark: #000000;
-  --bg-gray: #f0ecee;
+  --color-gray: #f0ecee;
+
   --color-point: #6750a4;
   --text-point: #4f378a;
+  --color-card: #c5b5f8;
+  --color-box: #ebb3f9;
+  --color-hover: #4c3d77;
+  --color-search: #aa9adb;
+  --color-search-hover: #3e3163;
+}
+
+.dark{
+  --color-white: #211f21;
+  --color-dark: #ffffff;
+  --color-gray: #211f21;
+  --color-primary: #51405b;
+  --text-point: #e8def8;
+  --color-card: #464558;
+}
+
+@layer base {
+  /* 모든 요소(*)에 대해 색상 변화 애니메이션 적용 */
+  * {
+    @apply transition-colors duration-500;
+  }
 }
 
 @layer utilities {

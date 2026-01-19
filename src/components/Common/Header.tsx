@@ -11,7 +11,7 @@ export default function Header() {
   const {user} = useAuthStore()
   return (
     <>
-      <div className="w-full h-[105px] bg-[var(--bg-gray)] sm:flex justify-start items-center relative select-none hidden">
+      <div className="w-full h-[105px] bg-[var(--color-gray)] sm:flex justify-start items-center relative select-none hidden">
         <Link href={"/"} aria-label="홈으로 이동">
           <div
             className="flex gap-[10px] ml-[13px] cursor-pointer"

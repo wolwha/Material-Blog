@@ -1,9 +1,15 @@
+import { usePostStore } from "@/stores/postStore";
+import { useRef } from "react";
+
 export default function TitleEdit() {
+  const date = new Date();
+  const titleRef = useRef(null);
+  const {setTitle} = usePostStore();
   return (
     <>
       <div className="min-w-[500px] h-[220px] bg-[var(--color-primary)] flex justify-start items-center rounded-[20px] px-[50px] relative">
         <div className="flex flex-col gap-[10px]">
-          <p className="text-[16px]">날짜</p>
+          <p className="text-[16px]">{date.getFullYear() + "." +( date.getMonth() + 1).toLocaleString().padStart(2, "0") + "." + date.getDate().toLocaleString().padStart(2, "0")}</p>
           <input
             type="text"
             className="text-[36px] font-semibold bg-white rounded-[10px] outline-0 px-[10px] max-w-[450px]"
