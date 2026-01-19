@@ -1,8 +1,8 @@
-export default function PostContainer() {
+export default function PostContainer({content}: {content: string}) {
   return (
     <>
       <div className="sm:w-[800px]">
-        <h1>PostContainer Component </h1>
+        <p>{content}</p>
       </div>
     </>
   );
