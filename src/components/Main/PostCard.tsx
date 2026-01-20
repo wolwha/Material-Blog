@@ -9,14 +9,14 @@ export default function PostCard({Title, Content, created_at, Category, id, Tags
   return (
     <>
       <Link href={`/post/${id}`} aria-label={`${Title} 게시글로 이동`}>
-        <div className="sm:w-[380px] sm:h-[340px] w-[100vw-32px] px-[16px] rounded-[20px] bg-[#f4effc] flex justify-center cursor-pointer hover:scale-103 hover:shadow-2xl transform transition-transform relative pb-[40px]">
-          <div className="mt-[20px] w-full">
+        <div className="sm:w-auto sm:h-auto w-[100vw-32px] py-4 px-4 rounded-2xl bg-(--color-card) flex justify-center items-center cursor-pointer hover:scale-103 hover:shadow-2xl hover:bg-(--color-card-hover) transform transition-all relative">
+          <div className="w-full">
             {/* 포스트 이미지 에리어 */}
             {/* rounded가 이미지에도 적용되려면 overflow-hidden이 필요합니다 */}
-            <div className="sm:w-[350px] h-[200px] rounded-[20px] bg-[#d9d9d9] relative overflow-hidden">
-              <span className="bg-[white] rounded-full py-[2px] px-[10px] absolute top-[5px] right-[5px] z-10">
-                {Category}
-              </span>
+            <div className="sm:w-auto h-[200px] rounded-2xl bg-[#d9d9d9] relative overflow-hidden">
+              <div className="bg-(--color-white) rounded-2xl px-2.5 absolute top-2.5 right-2.5 z-10 text-center flex justify-center items-center">
+              <p>{Category}</p>
+              </div>
               
               {/* [수정 부분] Image 컴포넌트 사용 */}
               <Image
@@ -29,15 +29,13 @@ export default function PostCard({Title, Content, created_at, Category, id, Tags
                 priority={false} // 필요에 따라 true 설정 (LCP 최적화)
               />
             </div>
-            <div className="sm:gap-[10px] sm:mt-[20px] mt-[20px]">
+            <div className="sm:gap-2.5 sm:mt-2.5 mt-2.5">
               <p className="sm:text-[26px] text-[20px] font-bold">{Title}</p>
               <p className="text-[16px] truncate">{Content}</p>
-              <p className="absolute right-[20px] text-[16px]">{day.getFullYear() + "." + (day.getMonth() + 1).toString().padStart(2, '0') + "." +day.getDate().toString().padStart(2, "0")}</p>
+              <p className="absolute right-5 text-[16px]">{day.getFullYear() + "." + (day.getMonth() + 1).toString().padStart(2, '0') + "." +day.getDate().toString().padStart(2, "0")}</p>
             </div>
             <div>
-              <span>
-                {Tags}
-              </span>
+              <p className="text-sm">{"#" + Tags}</p>
             </div>
           </div>
         </div>

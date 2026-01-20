@@ -8,8 +8,9 @@ export default function FloatingButton () {
   return (
     <>
       <div className="flex gap-[8px] sticky bottom-0 bg-white px-[10px] py-[10px] rounded-[100px] shadow-xl">
+        {/* 버튼 상황별 색상 재지정할 것 */}
         <Link href={"/"} aria-label="홈으로 이동">
-          {pathname === "\/" ? <div className="w-[120.5px] h-[56px] rounded-[100px] flex justify-center items-center hover:cursor-pointer active:bg-[var(--color-point)] hover:bg-[var(--color-point)] bg-[var(--color-point)] text-white">
+          {pathname === "\/" ? <div className="w-[120.5px] h-14 rounded-[100px] flex justify-center items-center hover:cursor-pointer active:bg-(--color-point) hover:bg-(--color-point) bg-(--color-point) text-white">
             <MdHomeFilled />
             Home
           </div> : <div className="w-[120.5px] h-[56px] rounded-[100px] flex justify-center items-center hover:cursor-pointer active:bg-[var(--color-point)] hover:bg-[var(--color-point)] bg-[var(--color-primary)] text-black">

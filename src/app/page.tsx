@@ -16,12 +16,12 @@ export default async function Page() {
   const fetchResult = await supabase.from("Posts").select("*").order("created_at", {ascending: false})
   return (
     <>
-      <div className="h-full rounded-[20px] bg-white justify-center items-start flex">
+      <div className="h-full rounded-[20px] bg-[var(--color-white)] justify-center items-start flex">
         <Container posts={fetchResult.data} />
         {hasCookie ? <EditButton /> : null}
       </div>
       {/* 모바일 플로팅 메뉴 */}
-      <div className="sm:hidden sticky bottom-[25px] justify-center flex items-center w-full">
+      <div className="sm:hidden sticky bottom-[25px] justify-center flex items-center w-full z-20">
         <FloatingButton/>
       </div>
     </>
