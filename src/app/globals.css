@@ -18,24 +18,29 @@
   --color-primary: #655692;
   --color-white: #ffffff;
   --color-dark: #000000;
-  --color-gray: #f0ecee;
-
+  --color-gray: #fcf7fe;
+  --color-outline: #79757e;
   --color-point: #6750a4;
   --text-point: #4f378a;
   --color-card: #c5b5f8;
   --color-box: #ebb3f9;
   --color-hover: #4c3d77;
-  --color-search: #aa9adb;
+  --color-search: #c5b5f8;
   --color-search-hover: #3e3163;
+  --color-github: #6d7281;
+  --color-card-hover: #aa9adb;
 }
 
 .dark{
   --color-white: #211f21;
   --color-dark: #ffffff;
-  --color-gray: #211f21;
+  --color-gray: #1a1a2b;
   --color-primary: #51405b;
   --text-point: #e8def8;
   --color-card: #464558;
+  --color-github: #ffffff;
+  --color-search: #aa9adb;
+  --color-card-hover: #48454d;
 }
 
 @layer base {

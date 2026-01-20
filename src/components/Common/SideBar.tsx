@@ -19,14 +19,11 @@ import DarkmodeButton from "./DarkmodeButton";
 export default function SideBar() {
   // 현재 도메인 위치 받아오기
   const location = usePathname();
-  const themeToggle = () => {
-    const {theme, setTheme} = useTheme()
-  }
   return (
     <>
       {/* 사이드바 확장 기능은 추후 추가 고려 */}
       <div className="w-[90px] h-[100svh] flex justify-center items-start bg-[var(--color-gray)] select-none relative">
-        <div className="grid gap-[30px] mt-[22px]">
+        <div className="grid gap-[30px] mt-[18px]">
           {/* 추후 사용 가능성을 고려하여 코드는 남겨놓기 */}
           {/* <button
             className="flex justify-center items-center size-[56px] rounded-[16px] hover:bg-[#d9d9d9] cursor-pointer"

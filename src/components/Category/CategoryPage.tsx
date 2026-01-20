@@ -2,7 +2,7 @@
 import { usePathname } from "next/navigation";
 import CategoryGroup from "./CategoryGroup";
 import CategoryDetail from "./CategoryDetail";
-import { GroupedPosts, PostProps, Posts } from "@/types/postType";
+import { GroupedPosts } from "@/types/postType";
 
 // Props를 위한 별도 인터페이스
 interface CategoryGroupedPosts{

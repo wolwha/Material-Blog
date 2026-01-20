@@ -1,12 +1,22 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../../assets/Logo.webp";
-import { MdOutlineDarkMode, MdOutlineSearch } from "react-icons/md";
+import { MdOutlineDarkMode, MdOutlineLightMode, MdOutlineSearch } from "react-icons/md";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 export default function MobileHeader () {
+  const [loaded, setLoaded] = useState<boolean>(false)
+  const {resolvedTheme, setTheme} = useTheme();
+  useEffect(() => {
+    setLoaded(true)
+  }, [setLoaded])
+  const currentTheme = loaded ? resolvedTheme : "light";
+
   return (
     <>
-      <div className="h-[60px] w-[100vw] sm:hidden flex items-center bg-[#f4f4f4] px-[16px] sticky top-0 z-10">
+      <div className="h-[60px] w-full sm:hidden flex items-center bg-[var(--color-gray)] px-[16px] sticky top-0 z-20">
         <Link href={"/"} aria-label="홈으로 이동">
           <div className="flex gap-[10px] justify-center items-center" >
             {/* 로고 이미지 */}
@@ -18,7 +28,8 @@ export default function MobileHeader () {
         <div className="w-full"></div>
         <div className="flex items-center gap-[14px]">
           {/* 다크모드 버튼 */}
-          <button className="size-[32px] rounded-full bg-[var(--color-point)] justify-center items-center text-center flex"><MdOutlineDarkMode className="text-white text-[20px]" aria-label="다크모드 버튼" /></button>
+          <button className="size-[32px] rounded-full bg-[var(--color-point)] justify-center items-center text-center flex" aria-label="다크모드 버튼" onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}>{currentTheme === "light" ? <MdOutlineDarkMode className="text-white text-[20px]" /> : <MdOutlineLightMode />
+}</button>
           {/* 검색 버튼 */}
           <Link href={"/search"} aria-label="검색으로 이동">
             <button className="size-[40px] rounded-[8px] bg-[var(--color-primary)] flex justify-center items-center"><MdOutlineSearch size={25} className="text-[var(--text-point)]" /></button>

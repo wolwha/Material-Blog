@@ -51,10 +51,10 @@ export default async function RootLayout({
                 <Header />
                 <MobileHeader />
                 {/* 컨테이너 */}
-                <div className="sm:h-full sm:bg-[var(--color-gray)] sm:flex">
+                <div className="sm:h-full sm:bg-[var(--color-gray)] bg-[var(--color-white)] sm:flex">
                   {/* 컨텐츠 */}
-                  <div className="w-full sm:min-h-[calc(100vh-105px)] sm:bg-[var(--color-card)] sm:rounded-tl-[20px] sm:px-[30px] sm:pt-[40px] flex flex-col">
-                    <div className="h-full rounded-[20px] bg-white justify-center items-start sm:flex">
+                  <div className="w-full sm:min-h-[calc(100vh-105px)] sm:bg-[var(--color-card)] sm:rounded-tl-[20px] sm:px-[30px] sm:pt-[30px] flex flex-col">
+                    <div className="h-full rounded-[20px] bg-[var(--color-white)] justify-center items-start sm:flex">
                       {children}
                     </div>
                     {/* 푸터 */}

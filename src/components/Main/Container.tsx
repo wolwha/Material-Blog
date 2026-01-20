@@ -9,7 +9,7 @@ interface Props {
 export default function Container({posts}: Props) {
   return (
     <>
-      <div className="sm:grid sm:gap-x-[15px] gap-y-[20px] sm:justify-center my-[30px] sm:h-auto 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 select-none w-full px-[16px] flex flex-col">
+      <div className="sm:grid sm:gap-x-[15px] gap-y-[15px] sm:justify-center my-[20px] sm:h-auto 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 select-none w-full px-[20px] flex flex-col">
         {/* Post 데이터 맵핑 */}
         {posts?.map((_, idx) => (
           <div key={idx}>

@@ -26,7 +26,7 @@ export default function Footer() {
             id="Github Repo"
             aria-label="Github Repo"
           >
-            <FaGithub size={40} className="text-gray-500" />
+            <FaGithub size={40} className="text-[var(--color-github)]" />
           </a>
           {/* 링크드인 버튼 적용 여부는 조금 더 고민해보기 */}
           {/* <button className="size-[60px] cursor-pointer flex justify-center items-center">

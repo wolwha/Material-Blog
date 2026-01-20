@@ -9,9 +9,9 @@ import ImageUpload from "./ImageUpload";
 export default function Edit() {
   return (
     <>
-      <div className="flex flex-col gap-[10px] items-end">
+      <div className="flex flex-col gap-2.5 items-end">
         {/* 제목과 대표사진 */}
-        <div className="flex mt-[20px] gap-[10px] justify-center items-center">
+        <div className="flex mt-5 gap-2.5 justify-center items-center">
           <TitleEdit />
           {/* 이미지 삽입부분으로 변경 */}
           <ImageUpload />
