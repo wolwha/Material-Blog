@@ -16,7 +16,7 @@
 
 :root {
   --color-primary: #655692;
-  --color-white: #ffffff;
+  --color-custom-white: #ffffff;
   --color-dark: #000000;
   --color-gray: #fcf7fe;
   --color-outline: #79757e;
@@ -32,7 +32,7 @@
 }
 
 .dark{
-  --color-white: #211f21;
+  --color-custom-white: #211f21;
   --color-dark: #ffffff;
   --color-gray: #1a1a2b;
   --color-primary: #51405b;

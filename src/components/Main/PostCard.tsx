@@ -13,8 +13,8 @@ export default function PostCard({Title, Content, created_at, Category, id, Tags
           <div className="w-full">
             {/* 포스트 이미지 에리어 */}
             {/* rounded가 이미지에도 적용되려면 overflow-hidden이 필요합니다 */}
-            <div className="sm:w-auto h-[200px] rounded-2xl bg-[#d9d9d9] relative overflow-hidden">
-              <div className="bg-(--color-white) rounded-2xl px-2.5 absolute top-2.5 right-2.5 z-10 text-center flex justify-center items-center">
+            <div className="sm:w-auto h-50 rounded-2xl bg-[#d9d9d9] relative overflow-hidden">
+              <div className="bg-(--color-custom-white) rounded-2xl px-2.5 absolute top-2.5 right-2.5 z-10 text-center flex justify-center items-center">
               <p>{Category}</p>
               </div>
               

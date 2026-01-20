@@ -9,7 +9,7 @@ interface MainImageProps{
 export default function MainImage({thumbnail, title}: MainImageProps) {
   return (
     <>
-      <div className="relative sm:w-[310px] sm:h-[220px] bg-gray-500 sm:rounded-[20px] w-full h-[140px] overflow-hidden">
+      <div className="relative sm:w-77.5 sm:h-55 bg-gray-500 sm:rounded-[20px] w-full h-35 overflow-hidden">
         {/* 1. 부모 div에 'relative'를 추가했습니다. (fill 사용 시 필수)
             2. 불필요한 justify-center items-center는 제거했습니다. (이미지 자체 속성으로 제어)
         */}

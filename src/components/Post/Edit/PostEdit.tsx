@@ -17,7 +17,7 @@ export default function PostEdit() {
   };
   return (
     <>
-      <div className="flex flex-col flex-grow h-[600px] w-full">
+      <div className="flex flex-col grow h-150 w-full">
         <MDEditor
           value={value}
           onChange={handleChange}

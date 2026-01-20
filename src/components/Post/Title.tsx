@@ -14,15 +14,15 @@ export default function Title({title, date, category}: test) {
   const {isAuthenticated} = useAuthStore()
   return (
     <>
-      <div className="sm:min-w-[500px] sm:h-[220px] bg-[var(--color-card)] flex justify-start items-center sm:rounded-[20px] sm:px-[50px] relative w-full">
-        <div className="ml-[20px] my-[12px]">
+      <div className="sm:min-w-125 sm:h-55 bg-(--color-card) flex justify-start items-center sm:rounded-[20px] sm:px-12.5 relative w-full">
+        <div className="ml-5 my-3">
           <p className="text-[16px]">{postDate.getFullYear() + "." + (postDate.getMonth() + 1).toLocaleString().padStart(2, "0") + "." + postDate.getDate().toLocaleString().padStart(2, "0")}</p>
           <p className="text-[36px] font-semibold">{title}</p>
           <p className="text-[16px]">{category}</p>
         </div>
-        <div className="sm:flex gap-[10px] sm:absolute right-[10px] bottom-[10px] hidden">
+        <div className="sm:flex gap-2.5 sm:absolute right-2.5 bottom-2.5 hidden">
           {isAuthenticated === true ? <button
-            className="size-[30px] rounded-[10px] bg-[var(--color-primary)] flex justify-center items-center cursor-pointer"
+            className="size-7.5 rounded-[10px] bg-(--color-primary) flex justify-center items-center cursor-pointer"
             aria-label="수정 버튼"
             name="수정 버튼"
           >
@@ -30,7 +30,7 @@ export default function Title({title, date, category}: test) {
           </button> : null}
           {/* 로그인이 안되어있으면 버튼 숨기기 */}
           {isAuthenticated === true ? <button
-            className="size-[30px] rounded-[10px] bg-[var(--color-primary)] flex justify-center items-center cursor-pointer"
+            className="size-7.5 rounded-[10px] bg-(--color-primary) flex justify-center items-center cursor-pointer"
             name="삭제 버튼"
             aria-label="삭제 버튼"
           >
