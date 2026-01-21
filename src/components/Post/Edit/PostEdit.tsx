@@ -4,22 +4,20 @@ import { useState } from "react";
 import "@uiw/react-md-editor/markdown-editor.css"; // 에디터 컴포넌트용
 import "@uiw/react-markdown-preview/markdown.css"; // 렌더링된 미리보기용
 import styles from "./PostEdit.module.css";
+import { usePostStore } from "@/stores/postStore";
 
 export default function PostEdit() {
-  const [value, setValue] = useState<string>("");
-
-  // onChange 핸들러 함수를 직접 정의합니다.
+  const {content, setContent} = usePostStore();
   const handleChange = (newValue?: string) => {
-    // newValue가 undefined가 아닐 때만 setValue를 호출합니다.
     if (newValue !== undefined) {
-      setValue(newValue);
+      setContent(newValue);
     }
   };
   return (
     <>
       <div className="flex flex-col grow h-150 w-full">
         <MDEditor
-          value={value}
+          value={content ?? ""}
           onChange={handleChange}
           height={600}
           preview="live" // preview를 'live'로 설정

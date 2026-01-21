@@ -19,7 +19,7 @@ export interface Posts {
   Category: string;
   
   // 3. 로그를 보니 배열이 아니라 단일 문자열("Test")로 들어오고 있습니다.
-  Tags: string; 
+  Tags: string[]; 
   
   // 4. 값이 없을 때 null이 들어옵니다.
   Thumbnail: string | null; 

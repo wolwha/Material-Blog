@@ -16,7 +16,7 @@ export default function DarkmodeButton () {
         {/* 배경 */}
         <div className="w-15.5 h-8 rounded-2xl bg-(--color-card) flex items-center border-2 border-(--color-outline)">
           {/* 움직이는 버튼 */}
-          <div className={`size-6 bg-white rounded-full mx-0.5 flex justify-center items-center transition-transform duration-500 ease-in-out ${currentTheme === "light" ? "translate-x-0" : "translate-x-7.5"}`}>
+          <div className={`size-6 bg-(--color-custom-white) rounded-full mx-0.5 flex justify-center items-center transition-transform duration-500 ease-in-out ${currentTheme === "light" ? "translate-x-0" : "translate-x-7.5"}`}>
             {currentTheme === "light" ? <MdOutlineWbSunny /> : <MdOutlineDarkMode/>}
           </div>
         </div>

@@ -6,6 +6,7 @@ import Image from "next/image";
 
 export default function PostCard({Title, Content, created_at, Category, id, Tags, Thumbnail}: Posts) {
   const day = new Date(created_at)
+  console.log(Tags)
   return (
     <>
       <Link href={`/post/${id}`} aria-label={`${Title} 게시글로 이동`}>
@@ -34,8 +35,11 @@ export default function PostCard({Title, Content, created_at, Category, id, Tags
               <p className="text-[16px] truncate">{Content}</p>
               <p className="absolute right-5 text-[16px]">{day.getFullYear() + "." + (day.getMonth() + 1).toString().padStart(2, '0') + "." +day.getDate().toString().padStart(2, "0")}</p>
             </div>
-            <div>
-              <p className="text-sm">{"#" + Tags}</p>
+            <div className="h-5 pt-1">
+              <p className="text-sm">{Tags && Tags.length > 0 ? Tags.slice(0, 2).map((tag, idx) => <span className="w-auto rounded-[5px] bg-(--color-gray) px-1.25 justify-center text-center items-center mr-1" key={idx}>
+                #{tag}
+                {/* map 안에서 span 엘리먼트에 문자열을 추가하면 객체가 강제로 문자열로 변환되면서 object로 출력된다. */}
+              </span>) : null}</p>
             </div>
           </div>
         </div>

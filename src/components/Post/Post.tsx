@@ -18,7 +18,7 @@ export default function Post ({postData}: PostProps) {
           <div className="flex flex-col gap-5">
             {/* 제목과 대표사진 */}
             <div className="flex flex-col sm:flex-row sm:mt-5 sm:gap-2.5 justify-center items-center">
-              <Title title={postData.Title} date={postData.created_at} category={postData.Category} />
+              <Title title={postData.Title} date={postData.created_at} category={postData.Category} tags={postData.Tags} />
               <MainImage thumbnail={postData.Thumbnail} title={postData.Title} />
             </div>
             {/* 내용과 목차 */}
