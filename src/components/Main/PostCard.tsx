@@ -6,7 +6,6 @@ import Image from "next/image";
 
 export default function PostCard({Title, Content, created_at, Category, id, Tags, Thumbnail}: Posts) {
   const day = new Date(created_at)
-  console.log(Tags)
   return (
     <>
       <Link href={`/post/${id}`} aria-label={`${Title} 게시글로 이동`}>
@@ -27,7 +26,7 @@ export default function PostCard({Title, Content, created_at, Category, id, Tags
                 fill // 부모 div(relative)에 꽉 차게 설정
                 className="object-cover" // 이미지 비율 유지하며 꽉 채우기
                 sizes="(max-width: 768px) 100vw, 350px" // 성능 최적화용 사이즈 힌트
-                priority={false} // 필요에 따라 true 설정 (LCP 최적화)
+                priority={true} // 필요에 따라 true 설정 (LCP 최적화)
               />
             </div>
             <div className="sm:gap-2.5 sm:mt-2.5 mt-2.5">

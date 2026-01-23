@@ -26,7 +26,7 @@ export default function MainImage({thumbnail, title}: MainImageProps) {
           // sizes는 브라우저가 적절한 이미지 크기를 선택하도록 돕습니다.
           // sm 브레이크포인트(보통 640px) 기준으로 설정하는 것이 좋습니다.
           sizes="(max-width: 640px) 100vw, 310px" 
-          priority={false}
+          priority={true}
         />
       </div>
     </>

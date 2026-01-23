@@ -11,7 +11,7 @@ export default function Post ({postData}: PostProps) {
     <>
       <div className="sm:flex sm:justify-center w-full">
         <div className="flex justify-center">
-          <div className="pt-62.5">
+          <div className="pt-62.5 hidden xl:flex">
           <div className="sm:w-37.5 sm:flex flex-col justify-center sm:pl-12.5 sticky h-full top-50 min-h-25 py-5 hidden">
           </div>
           </div>
@@ -31,7 +31,7 @@ export default function Post ({postData}: PostProps) {
               </div>
             </div>
           </div>
-          <div className="pt-62.5">
+          <div className="pt-62.5 xl:flex hidden">
               <Content />
           </div>
         </div>

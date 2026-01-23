@@ -22,7 +22,7 @@ export default function Title({title, date, category, tags}: titleTabData) {
           <p className="text-[16px]">{category}</p>
           <div className="mt-10">
             {tags.map((tag,idx) => (
-              <span className="rounded-[5px] bg-[#d9d9d9] px-1.25 justify-center text-center items-center mr-1" key={idx}>
+              <span className="rounded-[5px] bg-(--color-custom-white) px-1.25 justify-center text-center items-center mr-1" key={idx}>
                 {`#${tag}`}
               </span>
             ))}
