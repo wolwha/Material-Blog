@@ -15,7 +15,7 @@ export default function Title({title, date, category, tags}: titleTabData) {
   const {isAuthenticated} = useAuthStore()
   return (
     <>
-      <div className="sm:min-w-125 sm:h-55 bg-(--color-card) flex justify-start items-center sm:rounded-[20px] sm:px-8 relative w-full">
+      <div className="sm:min-w-95 sm:h-55 bg-(--color-card) flex justify-start items-center sm:rounded-[20px] sm:px-8 relative w-full">
         <div className="ml-5">
           <p className="text-[16px]">{postDate.getFullYear() + "." + (postDate.getMonth() + 1).toLocaleString().padStart(2, "0") + "." + postDate.getDate().toLocaleString().padStart(2, "0")}</p>
           <p className="text-[36px] font-semibold">{title}</p>

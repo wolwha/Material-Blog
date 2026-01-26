@@ -27,6 +27,7 @@ export default function PostCard({Title, Content, created_at, Category, id, Tags
                 className="object-cover" // 이미지 비율 유지하며 꽉 채우기
                 sizes="(max-width: 768px) 100vw, 350px" // 성능 최적화용 사이즈 힌트
                 priority={true} // 필요에 따라 true 설정 (LCP 최적화)
+                unoptimized={true}
               />
             </div>
             <div className="sm:gap-2.5 sm:mt-2.5 mt-2.5">

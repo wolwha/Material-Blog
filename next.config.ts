@@ -20,6 +20,12 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'iziqhetiqqnkxiyymwsd.supabase.co', // 에러 났던 Supabase 호스트명
         port: '',
+        pathname: '/storage/v1/object/public/**', // 스토리지 경로 패턴
+      },
+      {
+        protocol: 'https',
+        hostname: 'iziqhetiqqnkxiyymwsd.supabase.co', // 에러 났던 Supabase 호스트명
+        port: '',
         pathname: '/storage/v1/object/**', // 스토리지 경로 패턴
       },
     ],
