@@ -26,6 +26,8 @@ export interface Posts {
   
   // 5. Supabase(JSON)는 날짜를 ISO 문자열로 반환합니다.
   created_at: string;
+
+  Context: string | null;
 }
 
 export interface PostProps{

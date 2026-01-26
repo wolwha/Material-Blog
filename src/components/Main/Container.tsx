@@ -13,7 +13,7 @@ export default function Container({posts}: Props) {
         {/* Post 데이터 맵핑 */}
         {posts?.map((_, idx) => (
           <div key={idx}>
-            <PostCard Title={posts[idx].Title} Content={posts[idx].Content} created_at={posts[idx].created_at} Category={posts[idx].Category} id={posts[idx].id} Tags={posts[idx].Tags} Thumbnail={posts[idx].Thumbnail}/>
+            <PostCard Title={posts[idx].Title} Content={posts[idx].Content} created_at={posts[idx].created_at} Category={posts[idx].Category} id={posts[idx].id} Tags={posts[idx].Tags} Thumbnail={posts[idx].Thumbnail} Context={posts[idx].Context} />
           </div>
         ))}
       </div>

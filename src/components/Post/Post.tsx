@@ -4,9 +4,10 @@ import Content from "./Content";
 import MainImage from "./MainImage";
 import PostContainer from "./PostContainer";
 import Title from "./Title";
+import { ReactNode } from "react";
 
 
-export default function Post ({postData}: PostProps) {
+export default function Post ({postData, children}: PostProps & { children: ReactNode }) {
   return (
     <>
       <div className="sm:flex sm:justify-center w-full">
@@ -26,7 +27,10 @@ export default function Post ({postData}: PostProps) {
               {/* <div className="sm:w-[150px] h-full"></div> */}
               <div className="flex flex-col gap-5 w-full">
                 <div className="flex w-full">
-                  <PostContainer content={postData.Content} />
+                  {/* <PostContainer content={postData.Content} /> */}
+                  <PostContainer>
+                    {children}
+                  </PostContainer>
                 </div>
               </div>
             </div>

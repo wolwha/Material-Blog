@@ -6,10 +6,23 @@ import { useEffect, useState } from "react";
 export default function TagEdit() {
   const [tags, setTags] = useState<string[]>([])
   const [inputValue, setInputValue] = useState<string>("")
-  const {tag, setTag} = usePostStore();
+  const {setTag} = usePostStore();
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.currentTarget.value)
   }
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if(e.key === "Enter"){
+      e.preventDefault();
+      const newTag = e.currentTarget.value.trim();
+      if(newTag){
+        if(!tags.includes(newTag)){
+          setTags([...tags, newTag]);
+          setTag([...tags, newTag]);
+        }
+      }
+      setInputValue("")
+    }
+  };
   const handleAdd = () => {
     if(inputValue.trim() != ""){
       const newTags = ([...tags, inputValue.trim()])
@@ -21,7 +34,7 @@ export default function TagEdit() {
   return (
     <>
       <div className="flex gap-2.5 w-full">
-        <input type="text" className="w-full border rounded-[5px]" onChange={handleInput} value={inputValue} />
+        <input type="text" className="w-full border rounded-[5px]" onChange={handleInput} value={inputValue} onKeyDown={handleKeyDown} />
         <button className="w-21.25 rounded-[10px] bg-(--color-card)" aria-label="태그 추가 버튼" onClick={handleAdd}>
           추가
         </button>

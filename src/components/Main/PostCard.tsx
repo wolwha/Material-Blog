@@ -4,7 +4,7 @@ import DefaultThumbnail from "@/assets/PostThumbnail.png"
 import Link from "next/link";
 import Image from "next/image";
 
-export default function PostCard({Title, Content, created_at, Category, id, Tags, Thumbnail}: Posts) {
+export default function PostCard({Title, Content, created_at, Category, id, Tags, Thumbnail, Context}: Posts) {
   const day = new Date(created_at)
   return (
     <>
@@ -31,7 +31,7 @@ export default function PostCard({Title, Content, created_at, Category, id, Tags
             </div>
             <div className="sm:gap-2.5 sm:mt-2.5 mt-2.5">
               <p className="sm:text-[26px] text-[20px] font-bold">{Title}</p>
-              <p className="text-[16px] truncate">{Content}</p>
+              {Context != null ? <p className="text-[16px] truncate">{Context}</p> : <div className="h-6.5"></div>}
               <p className="absolute right-5 text-[16px]">{day.getFullYear() + "." + (day.getMonth() + 1).toString().padStart(2, '0') + "." +day.getDate().toString().padStart(2, "0")}</p>
             </div>
             <div className="h-5 pt-1">
