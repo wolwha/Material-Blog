@@ -1,16 +1,13 @@
 "use client";
-import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   FaGithub,
   FaLinkedin,
-  // FaRegMoon
 } from "react-icons/fa";
 import {
   MdCategory,
   MdHomeFilled,
-  // MdMenu,
   MdOutlineSearch,
   MdOutlineWbSunny,
 } from "react-icons/md";
@@ -22,8 +19,8 @@ export default function SideBar() {
   return (
     <>
       {/* 사이드바 확장 기능은 추후 추가 고려 */}
-      <div className="w-[90px] h-[100svh] flex justify-center items-start bg-[var(--color-gray)] select-none relative">
-        <div className="grid gap-[30px] mt-[18px]">
+      <div className="w-22.5 h-svh flex justify-center items-start bg-(--color-gray) select-none relative">
+        <div className="grid gap-7.5 mt-4.5">
           {/* 추후 사용 가능성을 고려하여 코드는 남겨놓기 */}
           {/* <button
             className="flex justify-center items-center size-[56px] rounded-[16px] hover:bg-[#d9d9d9] cursor-pointer"
@@ -35,17 +32,17 @@ export default function SideBar() {
           </button> */}
           <Link href={"/search"}>
             <button
-              className="size-[56px] rounded-[16px] bg-[var(--color-search)] flex justify-center items-center cursor-pointer hover:bg-[var(--color-search-hover)]"
+              className="size-14 rounded-2xl bg-(--color-search) flex justify-center items-center cursor-pointer hover:bg-(--color-search-hover)"
               name="search"
               id="search"
               aria-label="search"
             >
-              <MdOutlineSearch size={25} className="text-[var(--text-point)]" />
+              <MdOutlineSearch size={25} className="text-(--text-point)" />
             </button>
           </Link>
           <Link href="/">
             <button
-              className={`size-[56px] rounded-[16px] text-[10px] hover:bg-[#d9d9d9] flex flex-col justify-center items-center cursor-pointer ${
+              className={`size-14 rounded-2xl text-[10px] hover:bg-[#d9d9d9] flex flex-col justify-center items-center cursor-pointer ${
                 location === "/" ? "bg-[#d9d9d9] text-black" : ""
               }`}
               name="home"
@@ -57,7 +54,7 @@ export default function SideBar() {
           </Link>
           <Link href={"/category"}>
             <button
-              className={`size-[56px] rounded-[16px] text-[10px] hover:bg-[#d9d9d9] flex flex-col justify-center items-center  cursor-pointer ${
+              className={`size-14 rounded-2xl text-[10px] hover:bg-[#d9d9d9] flex flex-col justify-center items-center  cursor-pointer ${
                 location === "/category" ? "bg-[#d9d9d9]" : ""
               }`}
               name="Category"
@@ -71,7 +68,7 @@ export default function SideBar() {
             href="https://github.com/wolwha"
             target="_blank"
             rel="noopener noreferrer"
-            className="size-[56px] hover:bg-[#d9d9d9] rounded-[16px] flex flex-col justify-center items-center gap-[5px] text-[10px] cursor-pointer"
+            className="size-14 hover:bg-[#d9d9d9] rounded-2xl flex flex-col justify-center items-center gap-1.25 text-[10px] cursor-pointer"
             id="github"
             aria-label="github profile"
           >
@@ -82,15 +79,15 @@ export default function SideBar() {
             href="https://www.linkedin.com/in/sww727/?originalSubdomain=kr"
             target="_blank"
             rel="noopener noreferrer"
-            className="size-[56px] rounded-[16px] hover:bg-[#d9d9d9] flex flex-col justify-center items-center gap-[5px] text-[10px] cursor-pointer"
+            className="size-14 rounded-2xl hover:bg-[#d9d9d9] flex flex-col justify-center items-center gap-1.25 text-[10px] cursor-pointer"
             id="Linkedin"
             aria-label="Linkedin Profile"
           >
-            <FaLinkedin className="size-[25px] text-[#0a66c2]" />
+            <FaLinkedin className="size-6.25 text-[#0a66c2]" />
             Linked In
           </a>
         </div>
-        <div className="absolute bottom-[20px] left-[14px] flex justify-center items-center flex-col gap-[20px]">
+        <div className="absolute bottom-5 left-3.5 flex justify-center items-center flex-col gap-5">
           {/* 추후 추가 */}
           {/* <button
             className="rounded-[16px] size-[46px] bg-[var(--color-primary)] rotate-[45deg] border-2 border-[#BEB5CD] cursor-pointer"

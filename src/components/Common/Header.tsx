@@ -11,13 +11,13 @@ export default function Header() {
   const {user} = useAuthStore()
   return (
     <>
-      <div className="w-full h-[106px] bg-[var(--color-gray)] sm:flex justify-start items-center relative select-none hidden">
+      <div className="w-full h-26.5 bg-(--color-gray) sm:flex justify-start items-center relative select-none hidden">
         <Link href={"/"} aria-label="홈으로 이동">
           <div
-            className="flex gap-[10px] ml-[13px] cursor-pointer h-[56px]"
+            className="flex gap-2.5 ml-3.25 cursor-pointer h-14"
             id="Logo"
           >
-            <div className="size-[56px]">
+            <div className="size-14">
               <Image src={Logo} alt="Logo" width="56" height="56" />
             </div>
             <div className="flex flex-col justify-start items-start">
@@ -26,7 +26,7 @@ export default function Header() {
             </div>
           </div>
         </Link>
-        <div className="absolute right-[30px] h-[40px] top-[23px] gap-[20px] flex justify-center items-center">
+        <div className="absolute right-7.5 h-10 top-5.75 gap-5 flex justify-center items-center">
           <Link href={"/about"} aria-label="정보 페이지로 이동">
             <div
               className="cursor-pointer font-semibold hover:underline"
@@ -36,7 +36,7 @@ export default function Header() {
             </div>
           </Link>
           {user === null ? null : <button
-            className="size-[40px] rounded-full bg-[var(--color-primary)] flex justify-center items-center cursor-pointer"
+            className="size-10 rounded-full bg-(--color-primary) flex justify-center items-center cursor-pointer"
             id="Profile"
             name="Profile"
             aria-label="Profile"

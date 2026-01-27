@@ -9,7 +9,7 @@ interface MainImageProps{
 export default function MainImage({thumbnail, title}: MainImageProps) {
   return (
     <>
-      <div className="relative sm:w-[310px] sm:h-[220px] bg-gray-500 sm:rounded-[20px] w-full h-[140px] overflow-hidden">
+      <div className="relative sm:w-107.5 sm:h-55 bg-gray-500 sm:rounded-[20px] w-full h-35 overflow-hidden">
         {/* 1. 부모 div에 'relative'를 추가했습니다. (fill 사용 시 필수)
             2. 불필요한 justify-center items-center는 제거했습니다. (이미지 자체 속성으로 제어)
         */}
@@ -26,7 +26,9 @@ export default function MainImage({thumbnail, title}: MainImageProps) {
           // sizes는 브라우저가 적절한 이미지 크기를 선택하도록 돕습니다.
           // sm 브레이크포인트(보통 640px) 기준으로 설정하는 것이 좋습니다.
           sizes="(max-width: 640px) 100vw, 310px" 
-          priority={false}
+          priority={true}
+          unoptimized={true}
+          fetchPriority="high"
         />
       </div>
     </>

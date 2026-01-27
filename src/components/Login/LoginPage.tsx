@@ -1,9 +1,9 @@
 "use client";
 import Login from "@/components/Login/Login";
 import PinInput from "@/components/Login/PinInput";
-import { useState } from "react";
+import { usePinStore } from "@/stores/pinStore";
 
 export default function LoginPage() {
-  const [auth, setAuth] = useState<boolean>(true);
-  return <>{auth ? <Login /> : <PinInput />}</>;
+  const {pass} = usePinStore();
+  return <>{pass ? <Login /> : <PinInput />}</>;
 }

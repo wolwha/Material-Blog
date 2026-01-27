@@ -1,4 +1,5 @@
 @import "tailwindcss";
+/* @plugin "tailwindcss/typography"; */
 
 @theme {
   --breakpoint-2xl: 115rem;
@@ -16,7 +17,7 @@
 
 :root {
   --color-primary: #655692;
-  --color-white: #ffffff;
+  --color-custom-white: #ffffff;
   --color-dark: #000000;
   --color-gray: #fcf7fe;
   --color-outline: #79757e;
@@ -29,18 +30,20 @@
   --color-search-hover: #3e3163;
   --color-github: #6d7281;
   --color-card-hover: #aa9adb;
+  --color-toast-bg: #322F35;
 }
 
 .dark{
-  --color-white: #211f21;
+  --color-primary: #51405b;
+  --color-custom-white: #211f21;
   --color-dark: #ffffff;
   --color-gray: #1a1a2b;
-  --color-primary: #51405b;
   --text-point: #e8def8;
   --color-card: #464558;
   --color-github: #ffffff;
   --color-search: #aa9adb;
   --color-card-hover: #48454d;
+  --color-toast-bg: #E6E0E9;
 }
 
 @layer base {

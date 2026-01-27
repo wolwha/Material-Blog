@@ -1,14 +1,25 @@
+"use client";
+import { usePostStore } from "@/stores/postStore";
 import { MdOutlineClose } from "react-icons/md";
 
 export default function Tag() {
+  const {tag, setTag} = usePostStore()
+  const handleDelete = (idx: number) => {
+    if(!tag) return;
+    const newTags = tag.filter((_, index) => index !== idx);
+    // idx와 다른 값의 index를 가진 요소만 통과시켜 배열의 앝은 복사본 생성
+    setTag(newTags)
+  }
   return (
     <>
-      <div className="w-auto rounded-[5px] bg-[#d9d9d9] px-[5px] flex justify-center text-center items-center">
-        <p>#태그</p>
-        <button className="ml-[3px] cursor-pointer text-center" aria-label="태그 버튼">
+    {tag?.map((_, idx) => (
+      <div className="w-auto rounded-[5px] bg-[#d9d9d9] px-1.25 flex justify-center text-center items-center" key={idx}>
+        <p>#{tag[idx]}</p>
+        <button className="ml-0.75 cursor-pointer text-center" aria-label="태그 삭제 버튼" onClick={() => handleDelete(idx)}>
           <MdOutlineClose />
         </button>
       </div>
+    ))}
     </>
   );
 }

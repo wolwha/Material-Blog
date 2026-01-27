@@ -36,6 +36,14 @@ export default async function RootLayout({
   const { data: { user } } = await supabase.auth.getUser()
   return (
     <html lang="ko" suppressHydrationWarning>
+      <head>
+        {/* 사전 DNS 조회 */}
+        <link rel="dns-prefetch" href="https://iziqhetiqqnkxiyymwsd.supabase.co"/>
+        {/* TCP연결과 TLS 핸드셰이크까지 사전 완료 */}
+        <link rel="preconnect" href="https://iziqhetiqqnkxiyymwsd.supabase.co"
+        // crossOrigin: 외부 스토리지에서 이미지를 가져올 때 필수로 설정
+        crossOrigin="anonymous"/>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased sm:overflow-y-scroll sm:custom-scrollbar`}
         >
@@ -46,15 +54,15 @@ export default async function RootLayout({
                 {/* 사이드바 */}
                 <SideBar />
               </div>
-              <div className="sm:flex sm:flex-col grow w-full sm:ml-[90px]">
+              <div className="sm:flex sm:flex-col grow w-full sm:ml-22.5">
                 {/* 헤더 */}
                 <Header />
                 <MobileHeader />
                 {/* 컨테이너 */}
-                <div className="sm:h-full sm:bg-[var(--color-gray)] bg-[var(--color-white)] sm:flex">
+                <div className="sm:h-full sm:bg-(--color-gray) bg-(--color-custom-white) sm:flex">
                   {/* 컨텐츠 */}
-                  <div className="w-full sm:min-h-[calc(100vh-105px)] sm:bg-[var(--color-card)] sm:rounded-tl-[20px] sm:px-[30px] sm:pt-[30px] flex flex-col">
-                    <div className="h-full rounded-[20px] bg-[var(--color-white)] justify-center items-start sm:flex">
+                  <div className="w-full sm:min-h-[calc(100vh-105px)] sm:bg-(--color-card) sm:rounded-tl-[20px] sm:px-7.5 sm:pt-7.5 flex flex-col">
+                    <div className="h-full rounded-[20px] bg-(--color-custom-white) justify-center items-start sm:flex">
                       {children}
                     </div>
                     {/* 푸터 */}

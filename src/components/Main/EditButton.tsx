@@ -6,7 +6,7 @@ export default function EditButton() {
     <>
       <Link href={"/post/edit"} aria-label="글쓰기 페이지로 이동">
         <div
-          className="size-[60px] sm:flex justify-center items-center rounded-[20px] bg-[var(--color-primary)] fixed right-[70px] bottom-[40px] z-[50] shadow-md shadow-gray-700 cursor-pointer hidden"
+          className="size-15 sm:flex justify-center items-center rounded-[20px] bg-(--color-primary) fixed right-17.5 bottom-10 z-50 shadow-md shadow-gray-700 cursor-pointer hidden"
           aria-label="Edit"
         >
           <MdEdit size={20} />

@@ -1,8 +1,10 @@
-export default function PostContainer({content}: {content: string}) {
+import { ReactNode } from "react";
+
+export default function PostContainer({children}: {children: ReactNode}) {
   return (
     <>
-      <div className="sm:w-auto">
-        <p>{content}</p>
+      <div className="sm:w-auto w-full prose prose-lg prose-slate dark:prose-invert max-w-202.5">
+        {children}
       </div>
     </>
   );

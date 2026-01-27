@@ -24,7 +24,7 @@ export default async function Page() {
     <>
       <CategoryPage postData={groupedData} />
       {/* 모바일 플로팅 메뉴 */}
-      <div className="sm:hidden sticky bottom-[25px] justify-center flex items-center w-full">
+      <div className="sm:hidden sticky bottom-6.25 justify-center flex items-center w-full">
         <FloatingButton />
       </div>
     </>
