@@ -36,6 +36,14 @@ export default async function RootLayout({
   const { data: { user } } = await supabase.auth.getUser()
   return (
     <html lang="ko" suppressHydrationWarning>
+      <head>
+        {/* 사전 DNS 조회 */}
+        <link rel="dns-prefetch" href="https://iziqhetiqqnkxiyymwsd.supabase.co"/>
+        {/* TCP연결과 TLS 핸드셰이크까지 사전 완료 */}
+        <link rel="preconnect" href="https://iziqhetiqqnkxiyymwsd.supabase.co"
+        // crossOrigin: 외부 스토리지에서 이미지를 가져올 때 필수로 설정
+        crossOrigin="anonymous"/>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased sm:overflow-y-scroll sm:custom-scrollbar`}
         >

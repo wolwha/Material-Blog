@@ -28,6 +28,7 @@ export default function MainImage({thumbnail, title}: MainImageProps) {
           sizes="(max-width: 640px) 100vw, 310px" 
           priority={true}
           unoptimized={true}
+          fetchPriority="high"
         />
       </div>
     </>
