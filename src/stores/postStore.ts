@@ -13,6 +13,8 @@ interface PostStore {
   setThumbnail: (thumbnail: File | null) => void;
   // 저장된 데이터를 전부 리셋
   reset: () => void;
+  context: string | null;
+  setContext: (context: string | null) => void;
 }
 
 export const usePostStore = create<PostStore>((set) => ({
@@ -26,5 +28,7 @@ export const usePostStore = create<PostStore>((set) => ({
   setTag: (tag) => set({tag}),
   reset: () => set({title: null, category: null, content: null, tag:null, thumbnail:null}),
   thumbnail: null,
-  setThumbnail: (thumbnail) => set({thumbnail})
+  setThumbnail: (thumbnail) => set({thumbnail}),
+  context: null,
+  setContext: (context) => set({context})
 }))

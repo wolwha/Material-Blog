@@ -7,6 +7,7 @@ export interface PostType {
   Tags: string[]
   Thumbnail:string
   created_at: Date
+  Context: string
 }
 
 export interface Posts {

@@ -4,16 +4,17 @@ import { useRouter } from "next/navigation";
 
 export default function Button() {
   const supabase = createClient();
-  const {title, category, content, tag, thumbnail, reset} = usePostStore();
+  const {title, category, content, tag, thumbnail, context,  reset} = usePostStore();
   const router = useRouter();
   const handleSave = async () => {
+    
     // 업로드된 썸네일이 없을 경우
     if(thumbnail === null){
       const { data, error } = await supabase
       .from('Posts')
       .insert([
         // 한 row에 들어가는 데이터는 중괄호 내부에 함께 입력. 중괄호로 나눌 시 여러 row를 추가하겠다는 의미
-        { Content: content, Title: title, Tags: tag, Category: category },
+        { Content: content, Title: title, Tags: tag, Category: category, Context: context },
       ])
 
       if(error){

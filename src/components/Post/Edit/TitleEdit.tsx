@@ -1,14 +1,16 @@
 import { usePostStore } from "@/stores/postStore";
-import { useRef } from "react";
 
 export default function TitleEdit() {
   const date = new Date();
-  const {title, setTitle, category, setCategory} = usePostStore();
+  const {title, setTitle, category, setCategory, context, setContext} = usePostStore();
   const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.currentTarget.value)
   }
   const handleCategory = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCategory(e.currentTarget.value)
+  }
+  const handleContext = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setContext(e.currentTarget.value)
   }
   return (
     <>
@@ -27,8 +29,13 @@ export default function TitleEdit() {
           <div>
             <p className="text-[16px]">카테고리</p>
             <input type="text" name="카테고리" id="카테고리" className="bg-(--color-custom-white) rounded-[10px] text-[16px] w-full outline-0 px-2.5" placeholder="카테고리를 입력하세요" onChange={handleCategory}
+            aria-label="카테고리 입력란"
             value={category ?? ""}
             />
+          </div>
+          <div>
+            <p>게시글 설명</p>
+            <input type="text" aria-label="게시글 설명 입력란" className="bg-(--color-custom-white) rounded-[10px] text-[16px] w-full outline-0 px-2.5" placeholder="게시글 한줄 설명을 입력해주세요" onChange={handleContext} value={context ?? ""} />
           </div>
         </div>
       </div>

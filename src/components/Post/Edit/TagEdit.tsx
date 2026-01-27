@@ -34,7 +34,7 @@ export default function TagEdit() {
   return (
     <>
       <div className="flex gap-2.5 w-full">
-        <input type="text" className="w-full border rounded-[5px]" onChange={handleInput} value={inputValue} onKeyDown={handleKeyDown} />
+        <input type="text" className="w-full border rounded-[5px] px-2.5 outline-0" placeholder="태그를 입력해주세요" onChange={handleInput} value={inputValue} onKeyDown={handleKeyDown} />
         <button className="w-21.25 rounded-[10px] bg-(--color-card)" aria-label="태그 추가 버튼" onClick={handleAdd}>
           추가
         </button>
