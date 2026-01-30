@@ -28,7 +28,7 @@ export default function CategoryGroup({name, list}: CategoryGroup) {
         </div>
         <div className="sm:grid sm:gap-x-3.75 gap-y-5 my-7.5 sm:h-auto 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 select-none w-full px-4 flex flex-col sm:w-full">
           {/* 기능개발시 grid rows는 2줄까지 설정 */}
-          {list.map((_, idx) => (<PostCard Title={list[idx].Title} Content={list[idx].Content} id={list[idx].id} created_at={list[idx].created_at} Tags={list[idx].Tags} Thumbnail={list[idx].Thumbnail} key={idx} Category={list[idx].Category}/>))}
+          {list.map((post) => (<PostCard Title={post.Title} Content={post.Content} id={post.id} created_at={post.created_at} Tags={post.Tags} Thumbnail={post.Thumbnail} key={post.id} Category={post.Category} Context={post.Context}/>))}
         </div>
       </div>
     </>

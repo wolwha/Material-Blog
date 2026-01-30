@@ -30,7 +30,7 @@ export default function CategoryDetail() {
           </div>
         </div>
         <div className="sm:grid sm:gap-x-3.75 gap-y-5 sm:justify-center my-7.5 sm:h-auto 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 select-none w-full px-4 flex flex-col">
-          {PostData?.map((_, idx) => (<PostCard Title={PostData[idx].Title} created_at={PostData[idx].created_at} Content={PostData[idx].Content} Thumbnail={PostData[idx].Thumbnail} id={PostData[idx].id} Category={PostData[idx].Category} Tags={PostData[idx].Tags} key={idx}/>))}
+          {PostData?.map((post) => (<PostCard Title={post.Title} created_at={post.created_at} Content={post.Content} Thumbnail={post.Thumbnail} id={post.id} Category={post.Category} Tags={post.Tags} Context={post.Context} key={post.id}/>))}
         </div>
       </div>
     </>
