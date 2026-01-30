@@ -15,6 +15,10 @@ interface PostStore {
   reset: () => void;
   context: string | null;
   setContext: (context: string | null) => void;
+  toastmessage: string;
+  setToastMessage: (toastmessage: string) => void;
+  toastPopup: boolean;
+  setToastPopup: (toastPopup: boolean) => void;
 }
 
 export const usePostStore = create<PostStore>((set) => ({
@@ -26,9 +30,13 @@ export const usePostStore = create<PostStore>((set) => ({
   setContent: (content) => set({content}),
   tag: null,
   setTag: (tag) => set({tag}),
-  reset: () => set({title: null, category: null, content: null, tag:null, thumbnail:null}),
+  reset: () => set({title: null, category: null, content: null, tag:null, thumbnail:null, context:null, toastPopup: false}),
   thumbnail: null,
   setThumbnail: (thumbnail) => set({thumbnail}),
   context: null,
-  setContext: (context) => set({context})
+  setContext: (context) => set({context}),
+  toastmessage: "",
+  setToastMessage: (toastmessage) => set({toastmessage}),
+  toastPopup: false,
+  setToastPopup: (toastPopup) => set({toastPopup})
 }))

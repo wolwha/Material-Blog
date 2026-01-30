@@ -8,6 +8,8 @@ import MobileHeader from "@/components/Mobile/Common/MobileHeader";
 import AuthProvider from "@/components/Providers/AuthProvider";
 import { createClient } from "@/utils/supabase/server";
 import { ThemeProvider } from "next-themes";
+import Toast from "@/components/Common/Toast";
+import { usePostStore } from "@/stores/postStore";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

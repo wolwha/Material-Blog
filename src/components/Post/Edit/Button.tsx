@@ -4,12 +4,46 @@ import { useRouter } from "next/navigation";
 
 export default function Button() {
   const supabase = createClient();
-  const {title, category, content, tag, thumbnail, context,  reset} = usePostStore();
+  const {title, category, content, tag, thumbnail, context,  reset, setToastMessage, setToastPopup} = usePostStore();
   const router = useRouter();
+  
+  
   const handleSave = async () => {
-    
+    const messageList: string[] = []
+    // 필수 입력 필드가 비어있는 경우
+    if(title === null || content === null || context === null || category === null || tag === null){
+      // 입력 필드의 값이 null이거나 " "인지 확인
+      if(!(title || "").trim()){
+        setToastPopup(true)
+        // setToastMessage("제목을 입력해주세요")
+        messageList.push("제목")
+      } 
+      if (!(category || "").trim()){
+        setToastPopup(true)
+        // setToastMessage("본문을 작성해주세요")
+        messageList.push("카테고리")
+      } 
+      if (!(context || "").trim()){
+        setToastPopup(true)
+        // setToastMessage("게시글 설명을 입력해주세요")
+        messageList.push("설명")
+      } 
+      if (!(content || "").trim()){
+        setToastPopup(true)
+        // setToastMessage("카테고리를 입력해주세요")
+        messageList.push("본문")
+      } 
+      if (!tag || tag.length === 0){
+        setToastPopup(true)
+        // setToastMessage("태그를 추가해주세요")
+        messageList.push("태그")
+      }
+      setToastMessage(`${messageList.toString()}을(를) 입력해 주세요`)
+      return;
+    }
+
     // 업로드된 썸네일이 없을 경우
-    if(thumbnail === null){
+    else if(thumbnail === null){
       const { data, error } = await supabase
       .from('Posts')
       .insert([
@@ -21,7 +55,14 @@ export default function Button() {
         console.error(error.message)
       }else{
         console.log("upload success!")
-        router.push("/")
+        setToastPopup(true)
+        setToastMessage("업로드 중입니다...")
+        const timer = setTimeout(() => {
+          setToastPopup(false)
+          router.push("/?message=upload_success");
+          router.refresh();
+        }, 1000)
+        return () => clearTimeout(timer)
     }
   }else{
     const file = thumbnail as File
@@ -36,7 +77,6 @@ export default function Button() {
     // supabase 버킷에 업로드 된 이미지의 URL 받아오기
     const{data:thumbnailURL} = supabase.storage.from(bucketName).getPublicUrl(`Thumbnail/${fileName}`);
     const publicURL = thumbnailURL.publicUrl;
-    console.log(publicURL)
 
       const { error:uploadWithThumbnailError } = await supabase
       .from('Posts')
@@ -48,7 +88,7 @@ export default function Button() {
         console.error(uploadWithThumbnailError)
       }else{
         reset();
-        router.push('/')
+        router.push('/?message=upload_success')
       }
   }
 

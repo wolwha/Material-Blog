@@ -1,6 +1,5 @@
 "use client";
 import MDEditor from "@uiw/react-md-editor";
-import { useState } from "react";
 import "@uiw/react-md-editor/markdown-editor.css"; // 에디터 컴포넌트용
 import "@uiw/react-markdown-preview/markdown.css"; // 렌더링된 미리보기용
 import styles from "./PostEdit.module.css";
