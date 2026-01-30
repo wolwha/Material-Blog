@@ -24,6 +24,9 @@ export default function PostEdit() {
           previewOptions={{
             className: `${styles.markdownContent}`,
           }}
+          textareaProps={{
+            "aria-label": "마크다운 본문 입력 박스"
+          }}
         />
       </div>
     </>
