@@ -1,17 +1,14 @@
-"use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import {
-  FaGithub,
-  FaLinkedin,
-} from "react-icons/fa";
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import {
   MdCategory,
   MdHomeFilled,
   MdOutlineSearch,
   MdOutlineWbSunny,
-} from "react-icons/md";
-import DarkmodeButton from "./DarkmodeButton";
+} from 'react-icons/md';
+import DarkmodeButton from './DarkmodeButton';
 
 export default function SideBar() {
   // 현재 도메인 위치 받아오기
@@ -19,8 +16,8 @@ export default function SideBar() {
   return (
     <>
       {/* 사이드바 확장 기능은 추후 추가 고려 */}
-      <div className="w-22.5 h-svh flex justify-center items-start bg-(--color-gray) select-none relative">
-        <div className="grid gap-7.5 mt-4.5">
+      <div className="relative flex h-svh w-22.5 items-start justify-center bg-(--color-gray) select-none">
+        <div className="mt-4.5 grid gap-7.5">
           {/* 추후 사용 가능성을 고려하여 코드는 남겨놓기 */}
           {/* <button
             className="flex justify-center items-center size-[56px] rounded-[16px] hover:bg-[#d9d9d9] cursor-pointer"
@@ -30,9 +27,9 @@ export default function SideBar() {
           >
             <MdMenu size={25} />
           </button> */}
-          <Link href={"/search"}>
+          <Link href={'/search'}>
             <button
-              className="size-14 rounded-2xl bg-(--color-search) flex justify-center items-center cursor-pointer hover:bg-(--color-search-hover)"
+              className="flex size-14 cursor-pointer items-center justify-center rounded-2xl bg-(--color-search) hover:bg-(--color-search-hover)"
               name="search"
               id="search"
               aria-label="search"
@@ -42,8 +39,8 @@ export default function SideBar() {
           </Link>
           <Link href="/">
             <button
-              className={`size-14 rounded-2xl text-[10px] hover:bg-[#d9d9d9] flex flex-col justify-center items-center cursor-pointer ${
-                location === "/" ? "bg-[#d9d9d9] text-black" : ""
+              className={`flex size-14 cursor-pointer flex-col items-center justify-center rounded-2xl text-[10px] hover:bg-[#d9d9d9] ${
+                location === '/' ? 'bg-[#d9d9d9] text-black' : ''
               }`}
               name="home"
               aria-label="home"
@@ -52,10 +49,10 @@ export default function SideBar() {
               Home
             </button>
           </Link>
-          <Link href={"/category"}>
+          <Link href={'/category'}>
             <button
-              className={`size-14 rounded-2xl text-[10px] hover:bg-[#d9d9d9] flex flex-col justify-center items-center  cursor-pointer ${
-                location === "/category" ? "bg-[#d9d9d9]" : ""
+              className={`flex size-14 cursor-pointer flex-col items-center justify-center rounded-2xl text-[10px] hover:bg-[#d9d9d9] ${
+                location === '/category' ? 'bg-[#d9d9d9]' : ''
               }`}
               name="Category"
               aria-label="Category"
@@ -68,7 +65,7 @@ export default function SideBar() {
             href="https://github.com/wolwha"
             target="_blank"
             rel="noopener noreferrer"
-            className="size-14 hover:bg-[#d9d9d9] rounded-2xl flex flex-col justify-center items-center gap-1.25 text-[10px] cursor-pointer"
+            className="flex size-14 cursor-pointer flex-col items-center justify-center gap-1.25 rounded-2xl text-[10px] hover:bg-[#d9d9d9]"
             id="github"
             aria-label="github profile"
           >
@@ -79,7 +76,7 @@ export default function SideBar() {
             href="https://www.linkedin.com/in/sww727/?originalSubdomain=kr"
             target="_blank"
             rel="noopener noreferrer"
-            className="size-14 rounded-2xl hover:bg-[#d9d9d9] flex flex-col justify-center items-center gap-1.25 text-[10px] cursor-pointer"
+            className="flex size-14 cursor-pointer flex-col items-center justify-center gap-1.25 rounded-2xl text-[10px] hover:bg-[#d9d9d9]"
             id="Linkedin"
             aria-label="Linkedin Profile"
           >
@@ -87,7 +84,7 @@ export default function SideBar() {
             Linked In
           </a>
         </div>
-        <div className="absolute bottom-5 left-3.5 flex justify-center items-center flex-col gap-5">
+        <div className="absolute bottom-5 left-3.5 flex flex-col items-center justify-center gap-5">
           {/* 추후 추가 */}
           {/* <button
             className="rounded-[16px] size-[46px] bg-[var(--color-primary)] rotate-[45deg] border-2 border-[#BEB5CD] cursor-pointer"
@@ -95,7 +92,7 @@ export default function SideBar() {
             id="set color"
             aria-label="set Color"
           ></button> */}
-          <DarkmodeButton/>
+          <DarkmodeButton />
         </div>
       </div>
     </>

@@ -1,9 +1,9 @@
-"use client";
-import Login from "@/components/Login/Login";
-import PinInput from "@/components/Login/PinInput";
-import { usePinStore } from "@/stores/pinStore";
+'use client';
+import Login from '@/components/Login/Login';
+import PinInput from '@/components/Login/PinInput';
+import { usePinStore } from '@/stores/pinStore';
 
 export default function LoginPage() {
-  const {pass} = usePinStore();
+  const { pass } = usePinStore();
   return <>{pass ? <Login /> : <PinInput />}</>;
 }
