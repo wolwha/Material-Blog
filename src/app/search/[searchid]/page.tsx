@@ -1,9 +1,9 @@
-import ResultPage from "@/components/Search/ResultPage";
+import ResultPage from '@/components/Search/ResultPage';
 
-export default function page () {
+export default function page() {
   return (
     <>
-      <ResultPage/>
+      <ResultPage />
     </>
   );
 }

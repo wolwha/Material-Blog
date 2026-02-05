@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 /* @plugin "tailwindcss/typography"; */
 
 @theme {
@@ -6,13 +6,13 @@
 }
 
 @font-face {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-variation-settings: "wdth" 100;
-  src: url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap")
-    format("truetype");
+  font-variation-settings: 'wdth' 100;
+  src: url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap')
+    format('truetype');
 }
 
 :root {
@@ -20,6 +20,7 @@
   --color-custom-white: #ffffff;
   --color-dark: #000000;
   --color-gray: #fcf7fe;
+  --color-tag-gray: #ddd8df;
   --color-outline: #79757e;
   --color-point: #6750a4;
   --text-point: #4f378a;
@@ -30,10 +31,10 @@
   --color-search-hover: #3e3163;
   --color-github: #6d7281;
   --color-card-hover: #aa9adb;
-  --color-toast-bg: #322F35;
+  --color-toast-bg: #322f35;
 }
 
-.dark{
+.dark {
   --color-primary: #51405b;
   --color-custom-white: #211f21;
   --color-dark: #ffffff;
@@ -43,7 +44,7 @@
   --color-github: #ffffff;
   --color-search: #aa9adb;
   --color-card-hover: #48454d;
-  --color-toast-bg: #E6E0E9;
+  --color-toast-bg: #e6e0e9;
 }
 
 @layer base {
@@ -62,12 +63,12 @@
   }
 
   /* Firefox */
-  input[type="number"] {
+  input[type='number'] {
     -moz-appearance: textfield;
     appearance: textfield;
   }
 
-    /* 크롬, 사파리, 엣지용 스크롤바 커스텀 */
+  /* 크롬, 사파리, 엣지용 스크롤바 커스텀 */
   .custom-scrollbar::-webkit-scrollbar {
     width: 10px; /* 스크롤바 너비 */
   }
@@ -76,7 +77,7 @@
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
     background-color: #d1d5db; /* 스크롤바 색상 (gray-300) */
-    border-radius: 20px;       /* 둥글게 */
+    border-radius: 20px; /* 둥글게 */
     border: 3px solid transparent; /* 여백 효과 */
     background-clip: content-box;
   }

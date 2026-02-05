@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 interface PostStore {
   title: string | null;
@@ -23,20 +23,29 @@ interface PostStore {
 
 export const usePostStore = create<PostStore>((set) => ({
   title: null,
-  setTitle: (title) => set({title}),
+  setTitle: (title) => set({ title }),
   category: null,
-  setCategory: (category) => set({category}),
+  setCategory: (category) => set({ category }),
   content: null,
-  setContent: (content) => set({content}),
+  setContent: (content) => set({ content }),
   tag: null,
-  setTag: (tag) => set({tag}),
-  reset: () => set({title: null, category: null, content: null, tag:null, thumbnail:null, context:null, toastPopup: false}),
+  setTag: (tag) => set({ tag }),
+  reset: () =>
+    set({
+      title: null,
+      category: null,
+      content: null,
+      tag: null,
+      thumbnail: null,
+      context: null,
+      toastPopup: false,
+    }),
   thumbnail: null,
-  setThumbnail: (thumbnail) => set({thumbnail}),
+  setThumbnail: (thumbnail) => set({ thumbnail }),
   context: null,
-  setContext: (context) => set({context}),
-  toastmessage: "",
-  setToastMessage: (toastmessage) => set({toastmessage}),
+  setContext: (context) => set({ context }),
+  toastmessage: '',
+  setToastMessage: (toastmessage) => set({ toastmessage }),
   toastPopup: false,
-  setToastPopup: (toastPopup) => set({toastPopup})
-}))
+  setToastPopup: (toastPopup) => set({ toastPopup }),
+}));
