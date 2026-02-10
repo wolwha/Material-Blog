@@ -40,6 +40,7 @@ export default function TagEdit() {
           onChange={handleInput}
           value={inputValue}
           onKeyDown={handleKeyDown}
+          maxLength={10}
         />
         <button
           className="w-21.25 rounded-[10px] bg-(--color-card)"

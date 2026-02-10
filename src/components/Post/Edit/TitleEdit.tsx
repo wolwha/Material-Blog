@@ -16,7 +16,7 @@ export default function TitleEdit() {
   return (
     <>
       <div className="relative flex h-55 min-w-125 items-center justify-start rounded-[20px] bg-(--color-card) px-12.5">
-        <div className="flex flex-col gap-2.5">
+        <div className="flex flex-col gap-0.5">
           <p className="text-[16px]">
             {date.getFullYear() +
               '.' +
@@ -39,7 +39,7 @@ export default function TitleEdit() {
               type="text"
               name="카테고리"
               id="카테고리"
-              className="w-full rounded-[10px] bg-(--color-custom-white) px-2.5 text-[16px] outline-0"
+              className="w-full rounded-md bg-(--color-custom-white) px-2.5 text-[16px] outline-0"
               placeholder="카테고리를 입력하세요"
               onChange={handleCategory}
               aria-label="카테고리 입력란"
@@ -51,7 +51,7 @@ export default function TitleEdit() {
             <input
               type="text"
               aria-label="게시글 설명 입력란"
-              className="w-full rounded-[10px] bg-(--color-custom-white) px-2.5 text-[16px] outline-0"
+              className="w-full rounded-md bg-(--color-custom-white) px-2.5 text-[16px] outline-0"
               placeholder="게시글 한줄 설명을 입력해주세요"
               onChange={handleContext}
               value={context ?? ''}
