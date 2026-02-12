@@ -27,21 +27,12 @@ export default function page() {
               onChange={(e) => setValue(e.target.value)}
               value={value}
             />
-            {value === '' ? (
-              <button
-                className="absolute top-7.5 right-5 flex size-12.5 cursor-pointer text-center text-[70px]"
-                type="submit"
-              >
-                <MdSearch />
-              </button>
-            ) : (
-              <button
-                className="absolute top-7.5 right-5 flex size-12.5 cursor-pointer text-center text-[70px]"
-                onClick={() => setValue('')}
-              >
-                <MdOutlineClose />
-              </button>
-            )}
+            <button
+              className="absolute top-7.5 right-5 flex size-12.5 cursor-pointer text-center text-[70px]"
+              type="submit"
+            >
+              <MdSearch />
+            </button>
           </form>
         </div>
       </div>
