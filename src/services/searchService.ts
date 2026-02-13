@@ -1,8 +1,10 @@
+'use server';
 import { PostType } from '@/types/postType';
 import { SearchType } from '@/types/searchType';
 import { createClient } from '@/utils/supabase/server';
 
 export const getSearchData = async (keyword: string): Promise<SearchType> => {
+  console.log('전달된 요청어: ', keyword);
   const result: SearchType = {
     toTitle: [],
     toTag: [],
@@ -13,10 +15,10 @@ export const getSearchData = async (keyword: string): Promise<SearchType> => {
   const supabase = await createClient();
 
   const { data, error } = await supabase
-    .from('posts')
+    .from('Posts')
     .select('*')
     .or(
-      `title.ilike.%${keyword}%,category.ilike.%${keyword}%,tags.cs.{${keyword}}`,
+      `Title.ilike.%${keyword}%,Category.ilike.%${keyword}%,Tags.cs.{"${keyword}"}`,
     );
 
   if (error) return result;

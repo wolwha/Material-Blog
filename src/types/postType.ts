@@ -6,7 +6,7 @@ export interface PostType {
   id: number;
   Tags: string[];
   Thumbnail: string;
-  created_at: Date;
+  created_at: string;
   Context: string;
 }
 

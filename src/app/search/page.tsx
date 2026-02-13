@@ -8,8 +8,9 @@ export default function page() {
   const [value, setValue] = useState<string>('');
   const { setParam } = useSearchStore();
   const router = useRouter();
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(value);
     if (!value.trim()) return;
     setParam(value);
     router.push(`/search/${encodeURIComponent(value)}`);
@@ -27,6 +28,15 @@ export default function page() {
               onChange={(e) => setValue(e.target.value)}
               value={value}
             />
+            {value !== '' ? (
+              <button
+                className="absolute top-11.5 right-18 flex size-12.5 cursor-pointer text-center text-[40px]"
+                onClick={() => setValue('')}
+                type="button"
+              >
+                <MdOutlineClose />
+              </button>
+            ) : null}
             <button
               className="absolute top-7.5 right-5 flex size-12.5 cursor-pointer text-center text-[70px]"
               type="submit"
