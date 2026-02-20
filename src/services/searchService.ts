@@ -6,9 +6,10 @@ import { createClient } from '@/utils/supabase/server';
 export const getSearchData = async (keyword: string): Promise<SearchType> => {
   console.log('전달된 요청어: ', keyword);
   const result: SearchType = {
-    toTitle: [],
-    toTag: [],
+    // toTitle: [],
+    // toTag: [],
     toCategory: [],
+    toResult: [],
   };
   if (!keyword) return result;
 
@@ -28,15 +29,21 @@ export const getSearchData = async (keyword: string): Promise<SearchType> => {
     const lowerKeyword = keyword.toLowerCase();
 
     results.forEach((post) => {
-      if (post.Title.toLowerCase().includes(lowerKeyword))
-        result.toTitle.push(post);
+      // if (post.Title.toLowerCase().includes(lowerKeyword))
+      //   result.toTitle.push(post);
       if (post.Category.toLowerCase().includes(lowerKeyword))
         result.toCategory.push(post);
+      // if (
+      //   post.Tags &&
+      //   post.Tags.some((tag) => tag.toLowerCase().includes(lowerKeyword))
+      // )
+      //   result.toTag.push(post);
       if (
-        post.Tags &&
-        post.Tags.some((tag) => tag.toLowerCase().includes(lowerKeyword))
+        post.Category.toLowerCase().includes(lowerKeyword) ||
+        (post.Tags &&
+          post.Tags.some((tag) => tag.toLowerCase().includes(lowerKeyword)))
       )
-        result.toTag.push(post);
+        result.toResult.push(post);
     });
   }
   return result;
