@@ -47,8 +47,8 @@ export default function Post({
             </div>
           </div>
         </div>
-        <div className="sticky top-20 hidden pt-62.5 xl:flex h-full">
-          <Content />
+        <div className="sticky top-20 hidden h-full pt-62.5 xl:flex">
+          <Content content={postData.Content} title={postData.Title} />
         </div>
       </div>
     </>

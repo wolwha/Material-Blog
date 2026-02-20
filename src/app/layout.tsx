@@ -64,7 +64,7 @@ export default async function RootLayout({
                 {/* 사이드바 */}
                 <SideBar />
               </div>
-              <div className="w-full grow sm:ml-22.5 sm:flex sm:flex-col">
+              <div className="h-full w-full grow sm:ml-22.5 sm:flex sm:flex-col">
                 {/* 헤더 */}
                 <Header />
                 <MobileHeader />
