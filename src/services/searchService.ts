@@ -1,0 +1,50 @@
+'use server';
+import { PostType } from '@/types/postType';
+import { SearchType } from '@/types/searchType';
+import { createClient } from '@/utils/supabase/server';
+
+export const getSearchData = async (keyword: string): Promise<SearchType> => {
+  console.log('전달된 요청어: ', keyword);
+  const result: SearchType = {
+    // toTitle: [],
+    // toTag: [],
+    toCategory: [],
+    toResult: [],
+  };
+  if (!keyword) return result;
+
+  const supabase = await createClient();
+
+  const { data, error } = await supabase
+    .from('Posts')
+    .select('*')
+    .or(
+      `Title.ilike.%${keyword}%,Category.ilike.%${keyword}%,Tags.cs.{"${keyword}"}`,
+    );
+
+  if (error) return result;
+
+  if (data) {
+    const results = data as PostType[];
+    const lowerKeyword = keyword.toLowerCase();
+
+    results.forEach((post) => {
+      // if (post.Title.toLowerCase().includes(lowerKeyword))
+      //   result.toTitle.push(post);
+      if (post.Category.toLowerCase().includes(lowerKeyword))
+        result.toCategory.push(post);
+      // if (
+      //   post.Tags &&
+      //   post.Tags.some((tag) => tag.toLowerCase().includes(lowerKeyword))
+      // )
+      //   result.toTag.push(post);
+      if (
+        post.Category.toLowerCase().includes(lowerKeyword) ||
+        (post.Tags &&
+          post.Tags.some((tag) => tag.toLowerCase().includes(lowerKeyword)))
+      )
+        result.toResult.push(post);
+    });
+  }
+  return result;
+};
