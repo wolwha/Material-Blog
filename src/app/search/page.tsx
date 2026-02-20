@@ -18,19 +18,19 @@ export default function page() {
   };
   return (
     <>
-      <div className="w-full px-2.5 sm:px-50">
+      <div className="w-full px-2.5">
         <div className="flex w-full">
           <form className="relative flex w-full" onSubmit={handleSubmit}>
             <input
               type="text"
-              className="mt-7.5 h-17.5 w-full rounded-full border-2 px-5 text-[20px] font-semibold outline-0"
+              className="mt-2 h-17.5 w-full rounded-full border-2 px-5 text-[20px] font-semibold outline-0"
               placeholder="검색어를 입력해주세요"
               onChange={(e) => setValue(e.target.value)}
               value={value}
             />
             {value !== '' ? (
               <button
-                className="absolute top-11.5 right-18 flex size-12.5 cursor-pointer text-center text-[40px]"
+                className="absolute top-6 right-18 flex size-12.5 cursor-pointer text-center text-[40px]"
                 onClick={() => setValue('')}
                 type="button"
               >
@@ -38,7 +38,7 @@ export default function page() {
               </button>
             ) : null}
             <button
-              className="absolute top-7.5 right-5 flex size-12.5 cursor-pointer text-center text-[70px]"
+              className="absolute top-2 right-5 flex size-12.5 cursor-pointer text-center text-[70px]"
               type="submit"
             >
               <MdSearch />

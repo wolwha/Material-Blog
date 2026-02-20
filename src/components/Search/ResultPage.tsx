@@ -78,38 +78,10 @@ export default function ResultPage() {
         </div>
         <div className="flex w-full flex-col items-center justify-center">
           <div className="flex w-full justify-start px-4.5 py-10">
-            <p className="text-[32px] font-bold">{keyword}의 검색 결과</p>
+            <p className="text-[32px] font-bold">
+              {result?.toResult.length}개의 {keyword} 검색 결과
+            </p>
           </div>
-          {result?.toTag.length !== 0 ? (
-            <>
-              <div className="relative mx-6.25 flex w-full border-b px-5 text-start">
-                <p className="text-[24px] font-semibold">태그</p>
-                <button
-                  className="absolute right-5 bottom-0 cursor-pointer hover:underline"
-                  name="더보기 버튼"
-                  aria-label="더보기 버튼"
-                >
-                  더보기
-                </button>
-              </div>
-              <div className="mx-6.25 mt-3 mb-6.25 grid w-full grid-rows-2 gap-x-3.75 gap-y-5 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-                {/* 기능개발시 grid rows는 2줄까지 설정 */}
-                {result?.toTag.slice(0, 8).map((post) => (
-                  <PostCard
-                    Title={post.Title}
-                    Category={post.Category}
-                    Tags={post.Tags}
-                    created_at={post.created_at}
-                    id={post.id}
-                    Content={post.Content}
-                    Context={post.Context}
-                    Thumbnail={post.Thumbnail}
-                    key={post.id}
-                  />
-                ))}
-              </div>
-            </>
-          ) : null}
           {result?.toCategory.length !== 0 ? (
             <>
               <div className="relative mx-6.25 flex w-full border-b px-5 text-start">
@@ -122,7 +94,7 @@ export default function ResultPage() {
                   더보기
                 </button>
               </div>
-              <div className="mx-6.25 mt-3 mb-6.25 grid w-full grid-rows-2 gap-x-3.75 gap-y-5 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+              <div className="mx-6.25 mt-3 mb-6.25 grid w-full gap-x-3.75 gap-y-5 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                 {/* 기능개발시 grid rows는 2줄까지 설정 */}
                 {result?.toCategory.slice(0, 8).map((post) => (
                   <PostCard
@@ -140,10 +112,10 @@ export default function ResultPage() {
               </div>
             </>
           ) : null}
-          {result?.toTitle.length !== 0 ? (
+          {result?.toResult.length !== 0 ? (
             <>
               <div className="relative mx-6.25 flex w-full border-b px-5 text-start">
-                <p className="text-[24px] font-semibold">제목</p>
+                <p className="text-[24px] font-semibold">검색 결과</p>
                 <button
                   className="absolute right-5 bottom-0 cursor-pointer hover:underline"
                   name="더보기 버튼"
@@ -154,7 +126,7 @@ export default function ResultPage() {
               </div>
               <div className="mx-6.25 mt-3 mb-6.25 grid w-full gap-x-3.75 gap-y-5 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                 {/* 기능개발시 grid rows는 2줄까지 설정 */}
-                {result?.toTitle.slice(0, 8).map((post) => (
+                {result?.toResult.slice(0, 8).map((post) => (
                   <PostCard
                     Title={post.Title}
                     Category={post.Category}
