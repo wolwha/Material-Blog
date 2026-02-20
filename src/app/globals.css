@@ -1,6 +1,14 @@
 @import 'tailwindcss';
-/* @plugin "tailwindcss/typography"; */
+@plugin '@tailwindcss/typography'; /* 🌟 마크다운 스타일(prose) 플러그인 적용! */
 
+/* 🌟 v4의 혁신: 커스텀 플러그인을 이렇게 CSS로 바로 만듭니다! */
+@utility scrollbar-stable {
+  scrollbar-gutter: stable;
+}
+
+@utility scrollbar-stable-both {
+  scrollbar-gutter: stable both-edges;
+}
 @theme {
   --breakpoint-2xl: 115rem;
 }

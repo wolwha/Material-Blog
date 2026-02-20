@@ -1,3 +1,9 @@
+'use client';
+interface ToC {
+  id: string;
+  text: string;
+  level: number;
+}
 export default function Content() {
   return (
     <>
