@@ -143,7 +143,9 @@ export default function ResultPage() {
                 ))}
               </div>
             </>
+            
           ) : null}
+          <div></div>
         </div>
       </div>
     </>
