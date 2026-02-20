@@ -117,7 +117,7 @@ export default function ResultPage() {
           {result?.toResult.length !== 0 ? (
             <>
               <div className="relative mx-6.25 flex w-full border-b px-5 text-start">
-                <p className="text-[24px] font-semibold">검색 결과</p>
+                <p className="text-[24px] font-semibold">전체 검색 결과</p>
                 <button
                   className="absolute right-5 bottom-0 cursor-pointer hover:underline"
                   name="더보기 버튼"
