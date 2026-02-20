@@ -19,14 +19,14 @@ export default function Content({
 
   useEffect(() => {
     // 마크다운 본문 안의 제목 태그 검색
-    const Title = Array.from(
+    const titleElements = Array.from(
       document.querySelectorAll(
         '.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6',
       ),
     );
 
     // 찾은 요소들의 id, 텍스트, 레벨(h의 숫자) 추출
-    const headingData = Title.map((title) => ({
+    const headingData = titleElements.map((title) => ({
       id: title.id,
       text: title.textContent || '',
       level: Number(title.tagName.replace('H', '')),
@@ -35,23 +35,43 @@ export default function Content({
     // headingData 설정
     setHeading(headingData);
 
+    const getActiveId = () => {
+      const scrollMargin = 120;
+      // 스크롤 마진 => 해당 높이보다 높게 있으면 읽는 중으로 판단
+
+      // 화면 상단에서 아래로 내려오며 감지선보다 위에 있는 제목 중 가장 마지막에 있는 제목 검색
+      const currentContent = titleElements.findLast((el) => {
+        const rect = el.getBoundingClientRect();
+        return rect.top <= scrollMargin;
+      });
+
+      if (currentContent) setActiveId(currentContent.id);
+    };
+
     // 스크린 감지용 Intersection Observer
     const observerCallback: IntersectionObserverCallback = (entries) => {
-      entries.forEach((entry) => {
-        // 화면의 지정된 영역에 제목이 교차하면 activeId 업데이트
-        if (entry.isIntersecting) {
-          setActiveId(entry.target.id);
-        }
-      });
+      // entries.forEach((entry) => {
+      //   // 화면의 지정된 영역에 제목이 교차하면 activeId 업데이트
+      //   if (entry.isIntersecting && entry.intersectionRatio > 0) {
+      //     setActiveId(entry.target.id);
+      //   }
+      // });
+      getActiveId();
     };
 
     // 화면 상단에서 약간 아래쪽 지점을 감지선으로 설정
     const observer = new IntersectionObserver(observerCallback, {
+      // 감지 영역을 좁혀 불필요한 호출 줄임
       rootMargin: '-100px 0px -80% 0px',
+      // 요소가 조금이라도 걸치면 감지
+      threshold: 0.1,
     });
 
     // 제목 태그를 관찰 대상으로 추가
-    Title.forEach((title) => observer.observe(title));
+    titleElements.forEach((title) => observer.observe(title));
+
+    // 초기 렌더링에도 위치 잡음
+    getActiveId();
 
     // 컴포넌트가 언마운트 되면 관찰 해제
     return () => observer.disconnect();
