@@ -47,7 +47,7 @@ export default function Content({
 
     // 화면 상단에서 약간 아래쪽 지점을 감지선으로 설정
     const observer = new IntersectionObserver(observerCallback, {
-      rootMargin: '-100px, 0px, -80%, 0px',
+      rootMargin: '-100px 0px -80% 0px',
     });
 
     // 제목 태그를 관찰 대상으로 추가
@@ -61,15 +61,38 @@ export default function Content({
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const selectedTitle = document.getElementById(id);
+    if (selectedTitle) {
+      // 상단 여백을 고려하여 스크롤 위치 보정
+      const y =
+        selectedTitle.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+
+    // 목차가 없으면 렌더링하지 않음
+    if (heading.length === 0) return null;
   };
   return (
     <>
-      <div className="sticky top-50 hidden h-full min-h-25 flex-col justify-center gap-2.5 sm:flex sm:w-37.5 sm:pr-6.25 sm:pl-6.25">
+      <nav className="sticky top-50 hidden h-full min-h-25 flex-col justify-center gap-2.5 sm:flex sm:w-37.5 sm:pr-6.25 sm:pl-6.25">
         <p className="text-[24px] font-bold">{title}</p>
-        <h1 className="text-[20px] font-bold">제목</h1>
-        <p>title</p>
-        <p>list of content</p>
-      </div>
+        <ul className="flex flex-col gap-2">
+          {heading.map((heading) => (
+            <li
+              key={heading.id}
+              style={{ marginLeft: `${(heading.level - 1) * 12}px` }}
+              className={`text-sm transition-colors duration-200 ${activeId === heading.id ? 'font-bold text-(--color-dark)' : 'text-(--color-gray)'}`}
+            >
+              <a
+                href={`${heading.id}`}
+                onClick={(e) => handleClick(e, heading.id)}
+                className="block"
+              >
+                {heading.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </>
   );
 }

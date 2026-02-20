@@ -18,6 +18,7 @@ export default function PostEdit() {
         <MDEditor
           value={content ?? ''}
           onChange={handleChange}
+          tabSize={2}
           height={600}
           preview="live" // preview를 'live'로 설정
           data-color-mode="light"

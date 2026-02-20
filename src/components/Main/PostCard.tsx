@@ -59,7 +59,7 @@ export default function PostCard({
                 {Tags && Tags.length > 0
                   ? Tags.slice(0, 2).map((tag, idx) => (
                       <span
-                        className="mr-1 w-auto items-center justify-center rounded-[5px] bg-(--color-gray) px-1.25 text-center"
+                        className="mr-1 w-auto items-center justify-center rounded-[5px] bg-(--color-tag-gray) px-1.25 text-center"
                         key={idx}
                       >
                         #{tag}

@@ -1,7 +1,84 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography'; /* 🌟 마크다운 스타일(prose) 플러그인 적용! */
 
-/* 🌟 v4의 혁신: 커스텀 플러그인을 이렇게 CSS로 바로 만듭니다! */
+@variant dark (&:where(.dark, .dark *));
+
+/* 🌟 본문 요소들의 계층별 들여쓰기 통합 제어 */
+
+/* 1. 제목 레벨별 들여쓰기 (H1 ~ H6) */
+.prose h1 {
+  margin-left: 0rem !important;
+}
+.prose h2 {
+  margin-left: 1rem !important;
+} /* ml-4 */
+.prose h3 {
+  margin-left: 2rem !important;
+} /* ml-8 */
+.prose h4 {
+  margin-left: 3rem !important;
+} /* ml-12 */
+.prose h5 {
+  margin-left: 4rem !important;
+} /* ml-16 */
+.prose h6 {
+  margin-left: 5rem !important;
+} /* ml-20 */
+
+/* 2. 제목 바로 아래에 오는 본문(p)을 제목 선에 맞춤 */
+/* 인접 형제 선택자(+)를 사용하여 제목 바로 뒤의 문단도 함께 밀어줍니다. */
+.prose h2 + p {
+  margin-left: 1rem !important;
+}
+.prose h3 + p {
+  margin-left: 2rem !important;
+}
+.prose h4 + p {
+  margin-left: 3rem !important;
+}
+.prose h5 + p {
+  margin-left: 4rem !important;
+}
+.prose h6 + p {
+  margin-left: 5rem !important;
+}
+
+/* 3. 리스트 안의 리스트 (중첩 리스트) 들여쓰기 해결 */
+/* 두 번째 이미지의 '리스트 확인'이 안으로 들어가게 만듭니다. */
+.prose li > ul,
+.prose li > ol {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+  list-style-type: disc !important; /* 불렛 모양 강제 지정 */
+}
+
+/* 4. 기본 본문 텍스트 및 리스트 시작선 정렬 (기본 H2 기준) */
+.prose > p,
+.prose > ul,
+.prose > ol {
+  margin-left: 1rem !important;
+  display: block !important;
+}
+
+/* 5. 인라인 요소(볼드 등)가 옆으로 붙는 현상 방지 */
+.prose * {
+  max-width: 100%;
+}
+
+.prose {
+  --tw-prose-bullets: #000000;
+}
+
+.dark .prose {
+  --tw-prose-invert-bullets: #e2e8f0 !important;
+}
+
+.dark .prose ul li::marker,
+.dark .prose ol li::marker {
+  color: #e2e8f0 !important;
+}
+
+/* 커스텀 플러그인을 이렇게 CSS로 바로 만듭니다! */
 @utility scrollbar-stable {
   scrollbar-gutter: stable;
 }
@@ -27,7 +104,7 @@
   --color-primary: #655692;
   --color-custom-white: #ffffff;
   --color-dark: #000000;
-  --color-gray: #fcf7fe;
+  --color-light-point: #fcf7fe;
   --color-tag-gray: #ddd8df;
   --color-outline: #79757e;
   --color-point: #6750a4;
@@ -40,19 +117,24 @@
   --color-github: #6d7281;
   --color-card-hover: #aa9adb;
   --color-toast-bg: #322f35;
+  --color-gray: #5d5d72;
+  --color-title: #000000;
 }
 
 .dark {
   --color-primary: #51405b;
   --color-custom-white: #211f21;
   --color-dark: #ffffff;
-  --color-gray: #1a1a2b;
+  --color-light-point: #1a1a2b;
   --text-point: #e8def8;
   --color-card: #464558;
   --color-github: #ffffff;
   --color-search: #aa9adb;
   --color-card-hover: #48454d;
   --color-toast-bg: #e6e0e9;
+  --color-gray: #ffffff;
+  --color-title: #7a757f;
+  --color-tag-gray: #7a757f;
 }
 
 @layer base {
