@@ -16,7 +16,7 @@ export default function SideBar() {
   return (
     <>
       {/* 사이드바 확장 기능은 추후 추가 고려 */}
-      <div className="relative flex h-svh w-22.5 items-start justify-center bg-(--color-gray) select-none">
+      <div className="relative flex h-svh w-22.5 items-start justify-center bg-(--color-light-point) select-none">
         <div className="mt-4.5 grid gap-7.5">
           {/* 추후 사용 가능성을 고려하여 코드는 남겨놓기 */}
           {/* <button

@@ -41,14 +41,14 @@ export default function Post({
               <div className="flex w-full flex-col gap-5">
                 <div className="flex w-full">
                   {/* <PostContainer content={postData.Content} /> */}
-                  <PostContainer>{children}</PostContainer>
+                  <PostContainer>{postData.Content}</PostContainer>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="hidden pt-62.5 xl:flex">
-          <Content />
+        <div className="sticky top-20 hidden h-full pt-62.5 xl:flex">
+          <Content content={postData.Content} title={postData.Title} />
         </div>
       </div>
     </>

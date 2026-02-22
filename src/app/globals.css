@@ -1,6 +1,93 @@
 @import 'tailwindcss';
-/* @plugin "tailwindcss/typography"; */
+@plugin '@tailwindcss/typography'; /* 🌟 마크다운 스타일(prose) 플러그인 적용! */
 
+@variant dark (&:where(.dark, .dark *));
+
+/* 🌟 계층별 들여쓰기 및 중첩 리스트 최적화 */
+
+/* 1. 초기화: 제목이 나오기 전 혹은 H1의 본문 */
+.prose > *:not(h1, h2, h3, h4, h5, h6) {
+  margin-left: 0.5rem !important;
+}
+
+/* 2. 제목(Header) 위치 설정 (0.5rem 단위로 세분화) */
+.prose h1 {
+  margin-left: 0rem !important;
+}
+.prose h2 {
+  margin-left: 0.5rem !important;
+}
+.prose h3 {
+  margin-left: 1rem !important;
+}
+.prose h4 {
+  margin-left: 1.5rem !important;
+}
+.prose h5 {
+  margin-left: 2rem !important;
+}
+.prose h6 {
+  margin-left: 2.5rem !important;
+}
+
+/* 3. 제목 아래 본문(p, ul, ol 등) 위치 설정 */
+/* 각 제목의 위치보다 0.5rem(한 단계)씩 더 안으로 들어갑니다. */
+.prose h2 ~ *:not(h1, h2) {
+  margin-left: 1rem !important;
+}
+.prose h3 ~ *:not(h1, h2, h3) {
+  margin-left: 1.5rem !important;
+}
+.prose h4 ~ *:not(h1, h2, h3, h4) {
+  margin-left: 2rem !important;
+}
+.prose h5 ~ *:not(h1, h2, h3, h4, h5) {
+  margin-left: 2.5rem !important;
+}
+.prose h6 ~ *:not(h1, h2, h3, h4, h5, h6) {
+  margin-left: 3rem !important;
+}
+
+/* 질문하신 ol 태그 중첩 문제를 해결하는 핵심 부분입니다. */
+.prose li > ul,
+.prose li > ol {
+  /* 부모 리스트가 이미 밀려있으므로, 내부 추가 여백을 0.8rem으로 최소화합니다. */
+  margin-left: -0.5rem !important;
+  margin-top: 0.2rem !important;
+  margin-bottom: 0.2rem !important;
+
+  /* 숫자가 잘 보이고 정상적으로 표시되도록 설정 */
+  list-style-type: decimal !important;
+}
+
+/* 5. 이미지 및 코드 블록 예외 처리 */
+.prose img,
+.prose pre {
+  margin-left: 0 !important;
+  max-width: 100%;
+  display: block;
+}
+
+/* 5. 기타 스타일 유지 */
+.prose {
+  --tw-prose-bullets: #000000;
+}
+.dark .prose {
+  --tw-prose-invert-bullets: #e2e8f0 !important;
+}
+.dark .prose ul li::marker,
+.dark .prose ol li::marker {
+  color: #e2e8f0 !important;
+}
+
+/* 커스텀 플러그인을 이렇게 CSS로 바로 만듭니다! */
+@utility scrollbar-stable {
+  scrollbar-gutter: stable;
+}
+
+@utility scrollbar-stable-both {
+  scrollbar-gutter: stable both-edges;
+}
 @theme {
   --breakpoint-2xl: 115rem;
 }
@@ -19,7 +106,7 @@
   --color-primary: #655692;
   --color-custom-white: #ffffff;
   --color-dark: #000000;
-  --color-gray: #fcf7fe;
+  --color-light-point: #fcf7fe;
   --color-tag-gray: #ddd8df;
   --color-outline: #79757e;
   --color-point: #6750a4;
@@ -32,19 +119,24 @@
   --color-github: #6d7281;
   --color-card-hover: #aa9adb;
   --color-toast-bg: #322f35;
+  --color-gray: #5d5d72;
+  --color-title: #000000;
 }
 
 .dark {
   --color-primary: #51405b;
   --color-custom-white: #211f21;
   --color-dark: #ffffff;
-  --color-gray: #1a1a2b;
+  --color-light-point: #1a1a2b;
   --text-point: #e8def8;
   --color-card: #464558;
   --color-github: #ffffff;
   --color-search: #aa9adb;
   --color-card-hover: #48454d;
   --color-toast-bg: #e6e0e9;
+  --color-gray: #ffffff;
+  --color-title: #7a757f;
+  --color-tag-gray: #7a757f;
 }
 
 @layer base {

@@ -69,7 +69,7 @@ export default async function RootLayout({
                 <Header />
                 <MobileHeader />
                 {/* 컨테이너 */}
-                <div className="bg-(--color-custom-white) sm:flex sm:h-full sm:bg-(--color-gray)">
+                <div className="bg-(--color-custom-white) sm:flex sm:h-full sm:bg-(--color-light-point)">
                   {/* 컨텐츠 */}
                   <div className="flex w-full flex-col sm:min-h-[calc(100vh-105px)] sm:rounded-tl-[20px] sm:bg-(--color-card) sm:px-7.5 sm:pt-7.5">
                     <div className="h-full items-start justify-center rounded-[20px] bg-(--color-custom-white) sm:flex">
