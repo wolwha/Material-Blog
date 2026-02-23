@@ -44,7 +44,7 @@ export default function PostContainer({ children }: { children: string }) {
     },
   };
   return (
-    <div className="prose prose-lg prose-slate dark:prose-invert mb-10 w-full max-w-202.5 sm:w-auto">
+    <div className="prose prose-lg prose-slate dark:prose-invert mb-10 w-full max-w-full sm:w-auto sm:max-w-202.5">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw, rehypeSlug]}

@@ -13,7 +13,7 @@ export default function Post({
 }: PostProps & { children: ReactNode }) {
   return (
     <>
-      <div className="w-full sm:flex sm:justify-center">
+      <div className="sm:w-full sm:flex sm:justify-center">
         <div className="flex justify-center">
           <div className="hidden pt-62.5 xl:flex">
             <div className="sticky top-50 hidden h-full min-h-25 flex-col justify-center py-5 sm:flex sm:w-37.5 sm:pl-12.5"></div>
