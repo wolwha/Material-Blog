@@ -27,10 +27,12 @@ export default async function Page() {
   );
   return (
     <>
-      <CategoryPage postData={groupedData} />
-      {/* 모바일 플로팅 메뉴 */}
-      <div className="sticky bottom-6.25 flex w-full items-center justify-center sm:hidden">
-        <FloatingButton />
+      <div>
+        <CategoryPage postData={groupedData} />
+        {/* 모바일 플로팅 메뉴 */}
+        <div className="sticky bottom-6.25 flex w-full items-center justify-center sm:hidden z-10">
+          <FloatingButton />
+        </div>
       </div>
     </>
   );

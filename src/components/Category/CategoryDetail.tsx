@@ -27,7 +27,7 @@ export default function CategoryDetail() {
   }, [param.categoryid]);
   return (
     <>
-      <div className="flex w-full flex-col items-center justify-start">
+      <div className="flex min-h-[calc(100vh-160px)] w-full flex-col items-center justify-self-start">
         <div className="relative mx-6.25 flex w-full px-5 text-start">
           <div className="w-full border-b">
             <p className="text-[32px] font-semibold">
@@ -35,7 +35,7 @@ export default function CategoryDetail() {
             </p>
           </div>
         </div>
-        <div className="my-7.5 flex w-full flex-col gap-y-5 px-4 select-none sm:grid h-auto sm:grid-cols-1 sm:justify-center sm:gap-x-3.75 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+        <div className="my-7.5 flex w-full flex-col gap-y-5 px-4 select-none sm:grid sm:h-auto sm:grid-cols-1 sm:justify-center sm:gap-x-3.75 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
           {PostData?.map((post) => (
             <PostCard
               Title={post.Title}
