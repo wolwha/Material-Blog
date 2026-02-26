@@ -11,6 +11,11 @@ interface PostStore {
   setTag: (tag: string[] | null) => void;
   thumbnail: File | null;
   setThumbnail: (thumbnail: File | null) => void;
+
+  pendingFiles: Map<string, File>;
+  addPendingFile: (blobUrl: string, file: File) => void;
+  clearPendingFiles: () => void;
+
   // 저장된 데이터를 전부 리셋
   reset: () => void;
   context: string | null;
@@ -30,6 +35,12 @@ export const usePostStore = create<PostStore>((set) => ({
   setContent: (content) => set({ content }),
   tag: null,
   setTag: (tag) => set({ tag }),
+  pendingFiles: new Map(),
+  addPendingFile: (blobUrl, file) =>
+    set((state) => ({
+      pendingFiles: new Map(state.pendingFiles).set(blobUrl, file),
+    })),
+  clearPendingFiles: () => set({ pendingFiles: new Map() }),
   reset: () =>
     set({
       title: null,

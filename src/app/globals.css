@@ -121,6 +121,7 @@
   --color-toast-bg: #322f35;
   --color-gray: #5d5d72;
   --color-title: #000000;
+  --color-floating: #ffffff;
 }
 
 .dark {
@@ -137,6 +138,7 @@
   --color-gray: #ffffff;
   --color-title: #7a757f;
   --color-tag-gray: #7a757f;
+  --color-floating: #1a1a2b;
 }
 
 @layer base {

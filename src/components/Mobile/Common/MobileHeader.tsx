@@ -20,7 +20,7 @@ export default function MobileHeader() {
 
   return (
     <>
-      <div className="sticky top-0 z-20 flex h-15 w-full items-center bg-(--color-gray) px-4 sm:hidden">
+      <div className="sticky top-0 z-20 flex h-15 w-full items-center bg-(--color-light-point) px-4 sm:hidden">
         <Link href={'/'} aria-label="홈으로 이동">
           <div className="flex items-center justify-center gap-2.5">
             {/* 로고 이미지 */}

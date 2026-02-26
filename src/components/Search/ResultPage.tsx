@@ -7,6 +7,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { MdOutlineClose, MdSearch } from 'react-icons/md';
 import PostCard from '../Main/PostCard';
+import Link from 'next/link';
 
 export default function ResultPage() {
   const params = useParams();
@@ -88,13 +89,15 @@ export default function ResultPage() {
                 <p className="text-[24px] font-semibold">
                   {keyword}의 카테고리
                 </p>
-                <button
-                  className="absolute right-5 bottom-0 cursor-pointer hover:underline"
-                  name="더보기 버튼"
-                  aria-label="더보기 버튼"
-                >
-                  더보기
-                </button>
+                <Link href={`/category/${value}`}>
+                  <button
+                    className="absolute right-5 bottom-0 cursor-pointer hover:underline"
+                    name="더보기 버튼"
+                    aria-label="더보기 버튼"
+                  >
+                    더보기
+                  </button>
+                </Link>
               </div>
               <div className="mx-6.25 mt-3 mb-6.25 grid w-full gap-x-3.75 gap-y-5 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                 {/* 기능개발시 grid rows는 2줄까지 설정 */}
@@ -143,7 +146,6 @@ export default function ResultPage() {
                 ))}
               </div>
             </>
-            
           ) : null}
           <div></div>
         </div>

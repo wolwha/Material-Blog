@@ -27,7 +27,7 @@ export default function CategoryDetail() {
   }, [param.categoryid]);
   return (
     <>
-      <div className="flex w-full flex-col items-center justify-start">
+      <div className="flex min-h-[calc(100vh-160px)] w-full flex-col items-center justify-self-start">
         <div className="relative mx-6.25 flex w-full px-5 text-start">
           <div className="w-full border-b">
             <p className="text-[32px] font-semibold">

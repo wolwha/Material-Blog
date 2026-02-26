@@ -14,6 +14,7 @@ export default function Button() {
     reset,
     setToastMessage,
     setToastPopup,
+    pendingFiles,
   } = usePostStore();
   const router = useRouter();
 
@@ -57,68 +58,78 @@ export default function Button() {
       return;
     }
 
-    // 업로드된 썸네일이 없을 경우
-    else if (thumbnail === null) {
-      const { data, error } = await supabase.from('Posts').insert([
+    try {
+      setToastPopup(true);
+      setToastMessage('업로드 중입니다...');
+
+      // 본문 이미지 업로드 및 URL 치환
+      let finalContent = content;
+      const bucketName = 'Image';
+
+      for (const [blobUrl, file] of pendingFiles.entries()) {
+        // 본문에 해당 blob 주소가 남아있는 경우에만 업로드 진행
+        if (finalContent.includes(blobUrl)) {
+          const fileName = `${Date.now()}_${file.name}`;
+          const { data: uploadDate, error: uploadError } =
+            await supabase.storage
+              .from(bucketName)
+              .upload(`Contents/${fileName}`, file);
+
+          if (uploadError) {
+            console.error('이미지 업로드 실패: ', uploadError.message);
+            continue;
+          }
+
+          const { data: imageUrl } = supabase.storage
+            .from(bucketName)
+            .getPublicUrl(`Contents/${fileName}`);
+
+          // 본문의 임시 blob 주소를 실제 퍼블릭 URL로 치환
+          finalContent = finalContent.replaceAll(blobUrl, imageUrl.publicUrl);
+        }
+        // 메모리 해제
+        URL.revokeObjectURL(blobUrl);
+      }
+      let finalThumbnailURL = null;
+      if (thumbnail) {
+        const file = thumbnail as File;
+        const fileName = `${Date.now()}_${file.name}`;
+        const bucketName = 'Image';
+        const { error: thumbError } = await supabase.storage
+          .from(bucketName)
+          .upload(`Thumbnail/${fileName}`, file);
+
+        if (thumbError) {
+          console.error(thumbError);
+        }
+
+        const { data: thumbData } = supabase.storage
+          .from(bucketName)
+          .getPublicUrl(`Thumbnail/${fileName}`);
+
+        finalThumbnailURL = thumbData.publicUrl;
+      }
+
+      const { error: insertError } = await supabase.from('Posts').insert([
         // 한 row에 들어가는 데이터는 중괄호 내부에 함께 입력. 중괄호로 나눌 시 여러 row를 추가하겠다는 의미
         {
-          Content: content,
+          // 치환된 본문
+          Content: finalContent,
           Title: title,
           Tags: tag,
           Category: category,
           Context: context,
+          Thumbnail: finalThumbnailURL,
         },
       ]);
+      if (insertError) throw insertError;
 
-      if (error) {
-        console.error(error.message);
-      } else {
-        console.log('upload success!');
-        setToastPopup(true);
-        setToastMessage('업로드 중입니다...');
-        const timer = setTimeout(() => {
-          setToastPopup(false);
-          router.push('/?message=upload_success');
-          router.refresh();
-        }, 1000);
-        return () => clearTimeout(timer);
-      }
-    } else {
-      const file = thumbnail as File;
-      const fileName = `${Date.now()}_${file.name}`;
-      const bucketName = 'Image';
-      const { data, error } = await supabase.storage
-        .from(bucketName)
-        .upload(`Thumbnail/${fileName}`, file);
-
-      if (error) {
-        console.error(error);
-      }
-
-      // supabase 버킷에 업로드 된 이미지의 URL 받아오기
-      const { data: thumbnailURL } = supabase.storage
-        .from(bucketName)
-        .getPublicUrl(`Thumbnail/${fileName}`);
-      const publicURL = thumbnailURL.publicUrl;
-
-      const { error: uploadWithThumbnailError } = await supabase
-        .from('Posts')
-        .insert([
-          {
-            Content: content,
-            Title: title,
-            Tags: tag,
-            Category: category,
-            Thumbnail: publicURL,
-          },
-        ]);
-
-      if (uploadWithThumbnailError) {
-        console.error(uploadWithThumbnailError);
-      } else {
-        reset();
-        router.push('/?message=upload_success');
-      }
+      reset();
+      router.push('/?message=upload_success');
+      router.refresh();
+    } catch (error: any) {
+      console.error(error.message);
+      setToastMessage('업로드 중 오류가 발생했습니다');
     }
   };
   const handleCancel = () => {

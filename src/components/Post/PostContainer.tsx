@@ -6,18 +6,35 @@ import rehypeSlug from 'rehype-slug';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 // 🌟 2. 원하는 테마 불러오기 (VS Code 다크 테마 예시)
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import styles from './Edit/PostEdit.module.css';
+import React from 'react';
 
 // ... (import 부분은 동일) ...
 
 export default function PostContainer({ children }: { children: string }) {
   const markdownComponents: Components = {
+    p: (props) => <p {...props}>{props.children}</p>,
+    // 이미지 주석 처리 로직
+    img: ({ node, ...props }) => (
+      <figure
+        className="my-8 flex flex-col"
+        aria-label={
+          props.alt && props.alt !== 'image' ? `${props.alt} 이미지` : '이미지'
+        }
+      >
+        <img {...props} className={styles.responsiveImg} />
+        {/* alt가 존재하면서 image가 아닐 경우 주석 표시 */}
+        {props.alt && props.alt !== 'image' && (
+          <figcaption className={styles.imageCaption}>{props.alt}</figcaption>
+        )}
+      </figure>
+    ),
     // 🌟 클래스를 제거하고 태그만 남겨 CSS가 온전히 제어하게 합니다.
     h2: (props) => <h2 {...props} />,
     h3: (props) => <h3 {...props} />,
     ul: (props) => <ul {...props} />,
     ol: (props) => <ol {...props} />,
     li: (props) => <li {...props} />,
-    p: (props) => <p {...props} />, // 본문 텍스트
 
     // SyntaxHighlighter 로직
     code(props) {
@@ -44,7 +61,9 @@ export default function PostContainer({ children }: { children: string }) {
     },
   };
   return (
-    <div className="prose prose-lg prose-slate dark:prose-invert mb-10 w-full max-w-202.5 sm:w-auto">
+    <div
+      className={`prose prose-lg prose-slate dark:prose-invert mb-10 w-full max-w-full sm:w-auto sm:max-w-202.5 ${styles.markdownContent}`}
+    >
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw, rehypeSlug]}

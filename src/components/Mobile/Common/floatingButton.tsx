@@ -7,7 +7,7 @@ export default function FloatingButton() {
   const pathname = usePathname();
   return (
     <>
-      <div className="sticky bottom-0 flex gap-2 rounded-[100px] bg-white px-2.5 py-2.5 shadow-xl">
+      <div className="sticky bottom-0 flex gap-2 rounded-[100px] bg-(--color-floating) px-2.5 py-2.5 mb-4 shadow-xl">
         {/* 버튼 상황별 색상 재지정할 것 */}
         <Link href={'/'} aria-label="홈으로 이동">
           {pathname === '\/' ? (

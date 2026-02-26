@@ -1,5 +1,17 @@
 /* src/app/PostEdit.module.css */
 
+/* p태그를 레이아웃에서 제외하여 hydration 오류의 원인인 중첩 규칙을 무력화 */
+.markdownContent p {
+  display: contents;
+}
+
+/* p태그 안에 있던 텍스트들이 너무 붙지 않도록 간격 조정 */
+/* figure가 아닌 일반적인 텍스트 문달들에 여백 부여 */
+.markdownContent p > *:not(figure) {
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
 .markdownContent h1,
 .markdownContent h2,
 .markdownContent h3 {
@@ -24,4 +36,33 @@
   background-color: #f1f5f9;
   padding: 0.2em 0.4em;
   border-radius: 6px;
+}
+
+.markdownContent img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.imageFigure {
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.responsiveImg {
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 8px;
+}
+
+.imageCaption {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: #666;
+  font-style: italic;
 }

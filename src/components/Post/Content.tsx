@@ -84,7 +84,7 @@ export default function Content({
     if (selectedTitle) {
       // 상단 여백을 고려하여 스크롤 위치 보정
       const y =
-        selectedTitle.getBoundingClientRect().top + window.scrollY - 100;
+        selectedTitle.getBoundingClientRect().top + window.scrollY - 50;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
 
