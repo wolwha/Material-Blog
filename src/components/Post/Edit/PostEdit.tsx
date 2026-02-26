@@ -6,6 +6,10 @@ import styles from './PostEdit.module.css';
 import { usePostStore } from '@/stores/postStore';
 import { resizeImage } from '@/utils/imageResizer';
 import { Components } from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks';
+import rehypeRaw from 'rehype-raw';
+import rehypeSlug from 'rehype-slug';
 
 export default function PostEdit() {
   const markdownComponents: Components = {
@@ -103,6 +107,8 @@ export default function PostEdit() {
             className: `${styles.markdownContent}`,
             // @ts-ignore: react-md-editor와 react-markdow 간의 버전 불일치로 인한 타입 오류 우회
             components: markdownComponents as unknown as any,
+            remarkPlugins: [remarkGfm, remarkBreaks],
+            rehypePlugins: [rehypeRaw, rehypeSlug],
           }}
           textareaProps={{
             'aria-label': '마크다운 본문 입력 박스',
