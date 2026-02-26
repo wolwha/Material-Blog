@@ -42,14 +42,14 @@ export default function ImageUpload() {
         <div className="relative z-10">
           <div className="flex flex-col gap-5">
             <button
-              className="cursor-pointer rounded-lg bg-(--color-gray) px-2"
+              className="cursor-pointer rounded-lg bg-(--color-card) px-2"
               onClick={handleUpload}
             >
               이미지 첨부
             </button>
             {preview != null ? (
               <button
-                className="cursor-pointer rounded-lg bg-(--color-gray) px-2"
+                className="cursor-pointer rounded-lg bg-(--color-card) px-2"
                 onClick={handleRemove}
               >
                 이미지 제거
