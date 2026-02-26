@@ -7,7 +7,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 // 🌟 2. 원하는 테마 불러오기 (VS Code 다크 테마 예시)
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import styles from './Edit/PostEdit.module.css';
-import React from 'react';
+import remarkBreaks from 'remark-breaks';
 
 // ... (import 부분은 동일) ...
 
@@ -65,7 +65,7 @@ export default function PostContainer({ children }: { children: string }) {
       className={`prose prose-lg prose-slate dark:prose-invert mb-10 w-full max-w-full sm:w-auto sm:max-w-202.5 ${styles.markdownContent}`}
     >
       <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
+        remarkPlugins={[remarkGfm, remarkBreaks]}
         rehypePlugins={[rehypeRaw, rehypeSlug]}
         components={markdownComponents}
       >
