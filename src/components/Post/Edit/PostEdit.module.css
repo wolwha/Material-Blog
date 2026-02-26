@@ -66,3 +66,12 @@
   color: #666;
   font-style: italic;
 }
+
+/* code 태그 스타일 초기화 */
+.markdownContent
+  :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  background-color: transparent !important;
+  color: inherit !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
