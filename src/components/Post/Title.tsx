@@ -1,4 +1,7 @@
+'use client';
 import { useAuthStore } from '@/stores/userStore';
+import { createClient } from '@/utils/supabase/client';
+import { useParams } from 'next/navigation';
 import { MdDelete, MdEdit } from 'react-icons/md';
 
 interface titleTabData {
@@ -8,11 +11,21 @@ interface titleTabData {
   tags: string[];
 }
 
-export default function Title({ title, date, category, tags }: titleTabData) {
+export default function Title({ title, date, category }: titleTabData) {
+  const param = useParams<{ postid: string }>();
+  const supabase = createClient();
   // 날짜 형식으로 변환
   const postDate = new Date(date);
   // 상태 관리에서 로그인 여부 받아오기
   const { isAuthenticated } = useAuthStore();
+  const handleDelete = async () => {
+    const { error: deleteError } = await supabase
+      .from('Posts')
+      .delete()
+      .eq('id', param);
+
+    if (deleteError) return console.log('에러 발생: ', deleteError.message);
+  };
   return (
     <>
       <div className="relative flex w-full items-center justify-start bg-(--color-card) sm:h-55 sm:min-w-95 sm:rounded-[20px] sm:px-8">
@@ -26,13 +39,6 @@ export default function Title({ title, date, category, tags }: titleTabData) {
           </p>
           <p className="text-[36px] font-semibold">{title}</p>
           <p className="text-[16px]">{category}</p>
-          {/* <div className="mt-10">
-            {tags.map((tag,idx) => (
-              <span className="rounded-[5px] bg-(--color-custom-white) px-1.25 justify-center text-center items-center mr-1" key={idx}>
-                {`#${tag}`}
-              </span>
-            ))}
-          </div> */}
         </div>
         <div className="right-5 bottom-5 hidden gap-2.5 sm:absolute sm:flex">
           {isAuthenticated === true ? (
@@ -50,6 +56,7 @@ export default function Title({ title, date, category, tags }: titleTabData) {
               className="flex size-7.5 cursor-pointer items-center justify-center rounded-[10px] bg-(--color-primary)"
               name="삭제 버튼"
               aria-label="삭제 버튼"
+              onClick={handleDelete}
             >
               <MdDelete className="text-white" />
             </button>
