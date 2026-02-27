@@ -13,7 +13,7 @@ import remarkBreaks from 'remark-breaks';
 
 export default function PostContainer({ children }: { children: string }) {
   const markdownComponents: Components = {
-    p: (props) => <p {...props}>{props.children}</p>,
+    p: (props) => <div {...props}>{props.children}</div>,
     // 이미지 주석 처리 로직
     img: ({ node, ...props }) => (
       <figure
