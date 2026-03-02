@@ -2,7 +2,7 @@ import { usePostStore } from '@/stores/postStore';
 import Tag from './Tag';
 import { useEffect, useState } from 'react';
 
-export default function TagEdit() {
+export default function TagEdit({ editTag }: { editTag?: string[] }) {
   const [tags, setTags] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState<string>('');
   const { setTag } = usePostStore();
@@ -30,6 +30,11 @@ export default function TagEdit() {
       setInputValue('');
     }
   };
+  useEffect(() => {
+    if (editTag?.length !== 0 && editTag !== undefined) {
+      setTag(editTag);
+    }
+  }, []);
   return (
     <>
       <div className="flex w-full gap-2.5">

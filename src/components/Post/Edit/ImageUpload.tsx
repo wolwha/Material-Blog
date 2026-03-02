@@ -1,11 +1,11 @@
 'use client';
 import Image from 'next/image';
 import DefaultThumbnail from '@/assets/PostThumbnail.png';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { usePostStore } from '@/stores/postStore';
 import { resizeImage } from '@/utils/imageResizer';
 
-export default function ImageUpload() {
+export default function ImageUpload({ editImage }: { editImage?: string }) {
   const [preview, setPreview] = useState<string | null>(null);
   const imageRef = useRef<HTMLInputElement>(null);
   const { setThumbnail } = usePostStore();
@@ -36,6 +36,11 @@ export default function ImageUpload() {
       imageRef.current.value = '';
     }
   };
+  useEffect(() => {
+    if (editImage !== undefined) {
+      setPreview(editImage);
+    }
+  }, []);
   return (
     <>
       <div className="relative flex h-35 w-full items-center justify-center overflow-hidden bg-gray-300 sm:h-55 sm:w-77.5 sm:rounded-[20px]">

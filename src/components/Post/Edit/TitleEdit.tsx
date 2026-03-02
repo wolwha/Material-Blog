@@ -1,6 +1,15 @@
 import { usePostStore } from '@/stores/postStore';
+import { useEffect } from 'react';
 
-export default function TitleEdit() {
+export default function TitleEdit({
+  editTitle,
+  editCategory,
+  editContext,
+}: {
+  editTitle?: string;
+  editCategory?: string;
+  editContext?: string;
+}) {
   const date = new Date();
   const { title, setTitle, category, setCategory, context, setContext } =
     usePostStore();
@@ -13,6 +22,17 @@ export default function TitleEdit() {
   const handleContext = (e: React.ChangeEvent<HTMLInputElement>) => {
     setContext(e.currentTarget.value);
   };
+  useEffect(() => {
+    if (
+      editTitle !== undefined &&
+      editCategory !== undefined &&
+      editContext !== undefined
+    ) {
+      setTitle(editTitle);
+      setCategory(editCategory);
+      setContext(editContext);
+    }
+  }, []);
   return (
     <>
       <div className="relative flex h-55 min-w-125 items-center justify-start rounded-[20px] bg-(--color-card) px-12.5">
@@ -30,7 +50,7 @@ export default function TitleEdit() {
             placeholder="제목을 입력하세요"
             aria-label="제목 입력 상자"
             onChange={handleTitle}
-            value={title ?? ''}
+            value={title ?? editTitle ?? ''}
           />
           {/* 드롭다운 메뉴로 추후 변경 */}
           <div>
@@ -43,7 +63,7 @@ export default function TitleEdit() {
               placeholder="카테고리를 입력하세요"
               onChange={handleCategory}
               aria-label="카테고리 입력란"
-              value={category ?? ''}
+              value={category ?? editCategory ?? ''}
             />
           </div>
           <div>
@@ -54,7 +74,7 @@ export default function TitleEdit() {
               className="w-full rounded-md bg-(--color-custom-white) px-2.5 text-[16px] outline-0"
               placeholder="게시글 한줄 설명을 입력해주세요"
               onChange={handleContext}
-              value={context ?? ''}
+              value={context ?? editContext ?? ''}
             />
           </div>
         </div>

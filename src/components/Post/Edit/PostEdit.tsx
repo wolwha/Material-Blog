@@ -10,8 +10,9 @@ import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
+import { useEffect } from 'react';
 
-export default function PostEdit() {
+export default function PostEdit({ editContent }: { editContent?: string }) {
   const markdownComponents: Components = {
     p: (props: any) => <div {...props}>{props.children}</div>,
     // 이미지 주석 처리 로직
@@ -88,6 +89,11 @@ export default function PostEdit() {
       setContent(newValue);
     }
   };
+  useEffect(() => {
+    if (editContent !== undefined) {
+      setContent(editContent);
+    }
+  }, []);
   return (
     <>
       <div
@@ -97,7 +103,7 @@ export default function PostEdit() {
         onDragOver={handleDragOver}
       >
         <MDEditor
-          value={content ?? ''}
+          value={content ?? editContent ?? ''}
           onChange={handleChange}
           tabSize={2}
           height={600}
