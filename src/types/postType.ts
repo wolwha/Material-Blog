@@ -8,6 +8,7 @@ export interface PostType {
   Thumbnail: string;
   created_at: string;
   Context: string;
+  user_id: string;
 }
 
 export interface Posts {

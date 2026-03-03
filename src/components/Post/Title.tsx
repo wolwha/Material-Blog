@@ -1,7 +1,8 @@
 'use client';
+import { usePostStore } from '@/stores/postStore';
 import { useAuthStore } from '@/stores/userStore';
 import { createClient } from '@/utils/supabase/client';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { MdDelete, MdEdit } from 'react-icons/md';
 
 interface titleTabData {
@@ -13,18 +14,27 @@ interface titleTabData {
 
 export default function Title({ title, date, category }: titleTabData) {
   const param = useParams<{ postid: string }>();
+  const router = useRouter();
   const supabase = createClient();
   // 날짜 형식으로 변환
   const postDate = new Date(date);
+  const { setToastMessage } = usePostStore();
   // 상태 관리에서 로그인 여부 받아오기
   const { isAuthenticated } = useAuthStore();
   const handleDelete = async () => {
-    const { error: deleteError } = await supabase
-      .from('Posts')
-      .delete()
-      .eq('id', param);
+    try {
+      const { error: deleteError } = await supabase
+        .from('Posts')
+        .delete()
+        .eq('id', param.postid)
+        .select();
 
-    if (deleteError) return console.log('에러 발생: ', deleteError.message);
+      if (deleteError) throw deleteError;
+      router.push('/?message=delete_success');
+    } catch (error) {
+      console.error(error);
+      setToastMessage('삭제 중 오류가 발생했습니다');
+    }
   };
   return (
     <>

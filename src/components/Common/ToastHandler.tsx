@@ -22,6 +22,12 @@ export default function ToastHandler() {
       const newPath = window.location.pathname;
       // 현재 방문해 있는 주소를 이전 주소에서 대체 => 뒤로가기를 해도 파라미터가 있는 값으로 뒤로가기 되는것이 아님
       window.history.replaceState(null, '', newPath);
+    } else if (msgType === 'delete_success') {
+      setToastMessage('삭제 완료!');
+      setToastPopup(true);
+
+      const newPath = window.location.pathname;
+      window.history.replaceState(null, '', newPath);
     }
   }, [searchParams]);
 

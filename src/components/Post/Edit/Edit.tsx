@@ -8,8 +8,15 @@ import ImageUpload from './ImageUpload';
 import Toast from '@/components/Common/Toast';
 import { usePostStore } from '@/stores/postStore';
 import { useEffect } from 'react';
+import { PostType } from '@/types/postType';
 
-export default function Edit() {
+export default function Edit({
+  editData,
+  isEdit,
+}: {
+  editData?: PostType;
+  isEdit?: boolean;
+}) {
   const { toastmessage, toastPopup, setToastPopup, reset } = usePostStore();
 
   useEffect(() => {
@@ -33,13 +40,17 @@ export default function Edit() {
         <div className="flex flex-col items-end gap-2.5">
           {/* 제목과 대표사진 */}
           <div className="mt-5 flex items-center justify-center gap-2.5">
-            <TitleEdit />
+            <TitleEdit
+              editTitle={editData?.Title}
+              editCategory={editData?.Category}
+              editContext={editData?.Context}
+            />
             {/* 이미지 삽입부분으로 변경 */}
-            <ImageUpload />
+            <ImageUpload editImage={editData?.Thumbnail} />
           </div>
           {/* 내용 입력 에리어 */}
-          <PostEdit />
-          <TagEdit />
+          <PostEdit editContent={editData?.Content} />
+          <TagEdit editTag={editData?.Tags} />
           <Button />
         </div>
         <Toast message={toastmessage} toast={toastPopup} />
