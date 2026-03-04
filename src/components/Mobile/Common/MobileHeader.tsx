@@ -50,7 +50,7 @@ export default function MobileHeader() {
           {/* 검색 버튼 */}
           <Link href={'/search'} aria-label="검색으로 이동">
             <button className="flex size-10 items-center justify-center rounded-lg bg-(--color-primary)">
-              <MdOutlineSearch size={25} className="text-(--text-point)" />
+              <MdOutlineSearch size={25} className="text-white" />
             </button>
           </Link>
         </div>

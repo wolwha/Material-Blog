@@ -17,12 +17,16 @@ export default function PostContainer({ children }: { children: string }) {
     // 이미지 주석 처리 로직
     img: ({ node, ...props }) => (
       <figure
-        className="my-8 flex flex-col"
+        className="my-8 -ml-3 flex flex-col items-center sm:ml-0"
         aria-label={
           props.alt && props.alt !== 'image' ? `${props.alt} 이미지` : '이미지'
         }
       >
-        <img {...props} className={styles.responsiveImg} />
+        <img
+          {...props}
+          className={`${styles.responsiveImg} block`}
+          style={{ maxWidth: '100%', height: 'auto' }}
+        />
         {/* alt가 존재하면서 image가 아닐 경우 주석 표시 */}
         {props.alt && props.alt !== 'image' && (
           <figcaption className={styles.imageCaption}>{props.alt}</figcaption>
@@ -62,7 +66,7 @@ export default function PostContainer({ children }: { children: string }) {
   };
   return (
     <div
-      className={`prose prose-lg prose-slate dark:prose-invert mb-10 w-full max-w-full sm:w-auto sm:max-w-202.5 ${styles.markdownContent}`}
+      className={`prose prose-lg prose-slate dark:prose-invert mb-10 w-full max-w-full sm:w-auto sm:max-w-202.5 ${styles.markdownContent} px-2`}
     >
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkBreaks]}
