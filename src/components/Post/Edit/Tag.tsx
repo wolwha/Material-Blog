@@ -1,5 +1,6 @@
 'use client';
 import { usePostStore } from '@/stores/postStore';
+import { useEffect } from 'react';
 import { MdOutlineClose } from 'react-icons/md';
 
 export default function Tag() {
@@ -12,12 +13,12 @@ export default function Tag() {
   };
   return (
     <>
-      {tag?.map((_, idx) => (
+      {tag?.map((i, idx) => (
         <div
           className="flex w-auto items-center justify-center rounded-[5px] bg-[#d9d9d9] px-1.25 text-center"
-          key={idx}
+          key={`${i}-${idx}`}
         >
-          <p>#{tag[idx]}</p>
+          <p>#{i}</p>
           <button
             className="ml-0.75 cursor-pointer text-center"
             aria-label="태그 삭제 버튼"

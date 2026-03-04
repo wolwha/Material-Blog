@@ -48,10 +48,12 @@ export default function Edit({
             {/* 이미지 삽입부분으로 변경 */}
             <ImageUpload editImage={editData?.Thumbnail} />
           </div>
-          {/* 내용 입력 에리어 */}
-          <PostEdit editContent={editData?.Content} />
-          <TagEdit editTag={editData?.Tags} />
-          <Button />
+          <div className="w-[870px] flex flex-col gap-2">
+            {/* 내용 입력 에리어 */}
+            <PostEdit editContent={editData?.Content} />
+            <TagEdit editTag={editData?.Tags} />
+            <Button isEdit={isEdit} editId={editData?.id} />
+          </div>
         </div>
         <Toast message={toastmessage} toast={toastPopup} />
       </div>

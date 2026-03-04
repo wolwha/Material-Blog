@@ -28,6 +28,12 @@ export default function ToastHandler() {
 
       const newPath = window.location.pathname;
       window.history.replaceState(null, '', newPath);
+    } else if (msgType === 'edit_success') {
+      setToastMessage('수정 완료!');
+      setToastPopup(true);
+
+      const newPath = window.location.pathname;
+      window.history.replaceState(null, '', newPath);
     }
   }, [searchParams]);
 
