@@ -18,7 +18,7 @@ export default function page() {
   };
   return (
     <>
-      <div className="w-full px-2.5">
+      <div className="h-[calc(100vh-160px)] w-full px-2.5 sm:h-full">
         <div className="flex w-full">
           <form className="relative flex w-full" onSubmit={handleSubmit}>
             <input
