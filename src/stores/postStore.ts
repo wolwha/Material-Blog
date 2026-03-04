@@ -7,8 +7,8 @@ interface PostStore {
   setCategory: (category: string | null) => void;
   content: string | null;
   setContent: (content: string | null) => void;
-  tag: string[] | null;
-  setTag: (tag: string[] | null) => void;
+  tag: string[];
+  setTag: (tag: string[]) => void;
   thumbnail: File | null;
   setThumbnail: (thumbnail: File | null) => void;
 
@@ -33,7 +33,7 @@ export const usePostStore = create<PostStore>((set) => ({
   setCategory: (category) => set({ category }),
   content: null,
   setContent: (content) => set({ content }),
-  tag: null,
+  tag: [],
   setTag: (tag) => set({ tag }),
   pendingFiles: new Map(),
   addPendingFile: (blobUrl, file) =>
@@ -46,7 +46,7 @@ export const usePostStore = create<PostStore>((set) => ({
       title: null,
       category: null,
       content: null,
-      tag: null,
+      tag: [],
       thumbnail: null,
       context: null,
       toastPopup: false,

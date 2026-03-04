@@ -3,9 +3,8 @@ import Tag from './Tag';
 import { useEffect, useState } from 'react';
 
 export default function TagEdit({ editTag }: { editTag?: string[] }) {
-  const [tags, setTags] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState<string>('');
-  const { setTag } = usePostStore();
+  const { tag, setTag } = usePostStore();
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.currentTarget.value);
   };
@@ -13,20 +12,16 @@ export default function TagEdit({ editTag }: { editTag?: string[] }) {
     if (e.key === 'Enter') {
       e.preventDefault();
       const newTag = e.currentTarget.value.trim();
-      if (newTag) {
-        if (!tags.includes(newTag)) {
-          setTags([...tags, newTag]);
-          setTag([...tags, newTag]);
-        }
+      if (newTag && !tag?.includes(newTag)) {
+        setTag([...tag, newTag]);
       }
       setInputValue('');
     }
   };
   const handleAdd = () => {
+    const newTags = inputValue.trim();
     if (inputValue.trim() != '') {
-      const newTags = [...tags, inputValue.trim()];
-      setTags(newTags);
-      setTag(newTags);
+      setTag([...tag, newTags]);
       setInputValue('');
     }
   };
@@ -34,7 +29,7 @@ export default function TagEdit({ editTag }: { editTag?: string[] }) {
     if (editTag?.length !== 0 && editTag !== undefined) {
       setTag(editTag);
     }
-  }, []);
+  }, [editTag, setTag]);
   return (
     <>
       <div className="flex w-full gap-2.5">

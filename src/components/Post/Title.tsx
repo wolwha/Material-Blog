@@ -56,6 +56,9 @@ export default function Title({ title, date, category }: titleTabData) {
               className="flex size-7.5 cursor-pointer items-center justify-center rounded-[10px] bg-(--color-primary)"
               aria-label="수정 버튼"
               name="수정 버튼"
+              onClick={() => {
+                router.push(`${param.postid}/edit`);
+              }}
             >
               <MdEdit className="text-white" />
             </button>
