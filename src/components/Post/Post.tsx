@@ -13,14 +13,14 @@ export default function Post({
 }: PostProps & { children: ReactNode }) {
   return (
     <>
-      <div className="sm:w-full sm:flex sm:justify-center">
-        <div className="flex justify-center">
+      <div className="sm:flex sm:w-full sm:justify-center">
+        <div className="flex w-full justify-center">
           <div className="hidden pt-62.5 xl:flex">
             <div className="sticky top-50 hidden h-full min-h-25 flex-col justify-center py-5 sm:flex sm:w-37.5 sm:pl-12.5"></div>
           </div>
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 w-full">
             {/* 제목과 대표사진 */}
-            <div className="flex flex-col items-center justify-center sm:mt-5 sm:flex-row sm:gap-2.5">
+            <div className="flex w-100vw flex-col items-center justify-center sm:mt-5 sm:flex-row sm:gap-2.5">
               <Title
                 title={postData.Title}
                 date={postData.created_at}
