@@ -1,6 +1,5 @@
 'use client';
 import { usePostStore } from '@/stores/postStore';
-import { useEffect } from 'react';
 import { MdOutlineClose } from 'react-icons/md';
 
 export default function Tag() {
