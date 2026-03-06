@@ -38,7 +38,7 @@ export default function Title({ title, date, category }: titleTabData) {
   };
   return (
     <>
-      <div className="relative flex w-full items-center justify-start bg-(--color-card) sm:h-55 sm:min-w-95 sm:rounded-[20px] sm:px-8">
+      <div className="relative flex w-full items-center justify-start bg-(--color-card) py-8 sm:h-55 sm:min-w-95 sm:rounded-[20px] sm:px-8 sm:py-0">
         <div className="ml-5">
           <p className="text-[16px]">
             {postDate.getFullYear() +
