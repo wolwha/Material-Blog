@@ -226,7 +226,7 @@ export default function Button({
           저장
         </button>
         <button
-          className="h-8 w-21.25 cursor-pointer rounded-[100px] border border-(--color-primary)"
+          className="h-8 w-21.25 cursor-pointer rounded-[100px] border border-(--color-card)"
           aria-label="취소"
           onClick={handleCancel}
         >

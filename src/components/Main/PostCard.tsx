@@ -18,10 +18,11 @@ export default function PostCard({
   return (
     <>
       <Link href={`/post/${id}`} aria-label={`${Title} 게시글로 이동`}>
+        {/* 전체 카드 레이어 */}
         <div className="relative flex w-[100vw-32px] transform cursor-pointer items-center justify-center rounded-2xl bg-(--color-card) px-4 py-4 transition-all hover:scale-103 hover:bg-(--color-card-hover) hover:shadow-2xl sm:h-auto sm:w-auto">
           <div className="w-full">
             {/* 포스트 이미지 에리어 */}
-            {/* rounded가 이미지에도 적용되려면 overflow-hidden이 필요합니다 */}
+            {/* rounded가 이미지에도 적용되려면 overflow-hidden이 필요 */}
             <div className="relative h-50 overflow-hidden rounded-2xl bg-[#d9d9d9] sm:w-auto">
               <div className="absolute top-2.5 right-2.5 z-10 flex items-center justify-center rounded-2xl bg-(--color-custom-white) px-2.5 text-center">
                 <p>{Category}</p>
