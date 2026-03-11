@@ -13,6 +13,14 @@ export default function PinInput() {
       setPass(true);
     }
   };
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (pin === process.env.NEXT_PUBLIC_PIN_CODE) {
+        setPass(true);
+      }
+    }
+  };
   return (
     <>
       <div className="flex flex-col items-center justify-center gap-5">
@@ -27,6 +35,7 @@ export default function PinInput() {
             name="핀코드 입력칸"
             aria-label="핀코드 입력칸"
             onChange={handlePin}
+            onKeyDown={handleKeyDown}
           />
         </div>
         <button
