@@ -39,6 +39,12 @@ export default function PostContainer({ children }: { children: string }) {
     ul: (props) => <ul {...props} />,
     ol: (props) => <ol {...props} />,
     li: (props) => <li {...props} />,
+    table: (props) => <table {...props} />,
+    thead: (props) => <thead {...props} />,
+    tbody: (props) => <tbody {...props} />,
+    tr: (props) => <tr {...props} />,
+    th: (props) => <th {...props} />,
+    td: (props) => <td {...props} />,
 
     // SyntaxHighlighter 로직
     code(props) {
