@@ -11,7 +11,7 @@ export default function Header() {
   const { user } = useAuthStore();
   return (
     <>
-      <div className="relative hidden h-26.5 w-full items-center justify-start bg-(--color-light-point) select-none sm:flex">
+      <header className="relative hidden h-26.5 w-full items-center justify-start bg-(--color-light-point) select-none sm:flex">
         <Link href={'/'} aria-label="홈으로 이동">
           <div className="ml-3.25 flex h-14 cursor-pointer gap-2.5" id="Logo">
             <div className="size-14">
@@ -53,7 +53,7 @@ export default function Header() {
             </button>
           )}
         </div>
-      </div>
+      </header>
     </>
   );
 }

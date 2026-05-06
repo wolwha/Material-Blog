@@ -6,7 +6,7 @@ import {
 export default function Footer() {
   return (
     <>
-      <div className="inset-x-0 bottom-0 flex h-25 w-full items-center justify-center bg-(--color-card) select-none sm:relative sm:mt-0 sm:h-35">
+      <footer className="inset-x-0 bottom-0 flex h-25 w-full items-center justify-center bg-(--color-card) select-none sm:relative sm:mt-0 sm:h-35">
         {/* PC 푸터 적용 텍스트 */}
         <div className="hidden text-[14px] font-semibold sm:absolute sm:top-10 sm:left-12.5 sm:flex sm:flex-col sm:text-[16px]">
           <p>Made by J.Y.Lee</p>
@@ -33,7 +33,7 @@ export default function Footer() {
             <FaLinkedin className="size-10 text-[#0a66c2]" />
           </button> */}
         </div>
-      </div>
+      </footer>
     </>
   );
 }
